@@ -11,7 +11,7 @@
     <style>
       body {
         margin: 0;
-        font-family: "Work Sans", sans-serif; /* Gebruik Work Sans als standaard font */
+        font-family: "Work Sans", sans-serif;
       }
 
       /* Stijlen voor de navbar */
@@ -20,21 +20,15 @@
         justify-content: space-between;
         align-items: center;
         padding: 1.5vw 20px;
-        background-color: rgba(
-          0,
-          0,
-          0,
-          0.5
-        ); /* Doorzichtige zwarte achtergrond */
-        position: fixed; /* Vast aan de bovenkant */
+        background-color: transparent;
+        position: fixed;
         width: 100%;
         z-index: 1000;
-        box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
       }
 
       .navbar .container {
-        max-width: 1200px; /* Maximale breedte van de navbar */
-        margin: 0 auto; /* Centreert de navbar op de pagina */
+        max-width: 1200px;
+        margin: 0 auto;
         width: 100%;
         display: flex;
         justify-content: space-between;
@@ -46,12 +40,23 @@
         text-decoration: none;
         margin: 0 15px;
         font-size: 16px;
-        transition: color 0.3s;
-        font-weight: 400; /* Standaard gewicht */
+        font-weight: 400;
+        position: relative; /* Noodzakelijk voor pseudo-element */
       }
 
-      .navbar a:hover {
-        color: #ff9800;
+      .navbar a::after {
+        content: "";
+        position: absolute;
+        bottom: -2px;
+        left: 0;
+        width: 0;
+        height: 1px;
+        background-color: white;
+        transition: width 0.5s ease;
+      }
+
+      .navbar a:hover::after {
+        width: 100%; /* De volledige breedte van de tekst */
       }
 
       .navbar .logo {
@@ -60,36 +65,116 @@
         color: white;
       }
 
-      .content {
-        padding-top: 70px;
+      /* Content secties */
+      .section {
+        text-align: center;
+        color: black;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-direction: column;
+        padding: 20px;
       }
 
-      /* afspraak knop */
+      .section-one {
+        background-image: url("img/image0.jpeg");
+        height: 100vh;
+      }
 
-      /* Stijlen voor de button rechtsonder */
+      .section-two {
+        background-color: #dfd9cd;
+        height: 300%;
+      }
+
+      .section-three {
+        background-color: #bdb5ac;
+        height: 300%;
+      }
+
+      .section h2 {
+        font-size: 32px;
+        font-weight: 600;
+        margin-bottom: 20px;
+      }
+
+      .section p {
+        font-size: 18px;
+        line-height: 1.6;
+        margin: 0 auto;
+        max-width: 800px;
+      }
+
+      /* Afspraak knop */
       .floating-button {
         position: fixed;
-        bottom: 20px; /* 20px vanaf de onderkant */
-        right: 20px; /* 20px vanaf de rechterkant */
-        background-color: #484036; /* Bruine achtergrondkleur */
-        color: white; /* Witte tekst */
+        bottom: 20px;
+        right: 20px;
+        background-color: #484036;
+        color: white;
         border: none;
         padding: 15px 25px;
         font-size: 16px;
-        font-family: "Work Sans", sans-serif; /* Consistent met de rest van de website */
-        font-weight: 600; /* Dikkere tekst */
-        border-radius: 50px; /* Maakt de button rond */
-        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Zachte schaduw */
+        font-family: "Work Sans", sans-serif;
+        font-weight: 600;
+        border-radius: 50px;
+        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
         cursor: pointer;
-        transition: all 0.3s ease; /* Gladde overgangseffecten */
+        transition: all 0.3s ease;
       }
 
       .floating-button:hover {
-        background-color: #584e42; /* Iets lichtere bruine kleur bij hover */
-        box-shadow: 0 6px 8px rgba(0, 0, 0, 0.2); /* Grotere schaduw bij hover */
-        transform: translateY(-3px); /* Lichte beweging omhoog bij hover */
+        background-color: #584e42;
+        box-shadow: 0 6px 8px rgba(0, 0, 0, 0.2);
+        transform: translateY(-3px);
+      }
+
+      /* Modal css */
+      .modal {
+        display: none;
+        position: fixed;
+        z-index: 1001;
+        left: 0;
+        top: 0;
+        width: 100%;
+        height: 100%;
+        background-color: rgba(0, 0, 0, 0.8);
+        justify-content: center;
+        align-items: center;
+      }
+
+      .modal-content {
+        background: white;
+        width: 90%;
+        max-width: 800px;
+        height: 80%;
+        border-radius: 8px;
+        overflow: hidden;
+        position: relative;
+      }
+
+      .close {
+        position: absolute;
+        top: 20px;
+        right: 2vw;
+        font-size: 30px;
+        font-weight: bold;
+        color: black;
+        cursor: pointer;
+      }
+
+      .close:hover {
+        color: red;
       }
     </style>
+    <script>
+      function openModal() {
+        document.getElementById("appointmentModal").style.display = "flex";
+      }
+
+      function closeModal() {
+        document.getElementById("appointmentModal").style.display = "none";
+      }
+    </script>
   </head>
   <body>
     <!-- Navbar -->
@@ -104,13 +189,44 @@
       </div>
     </nav>
 
-    <!-- Content -->
-    <div class="content">
-      <h1>Welkom op mijn website!</h1>
-      <p>Hier komt je inhoud.</p>
+    <!-- Content secties -->
+    <div class="section section-one">
+      <!-- <h2>Sectie 1</h2>
+      <p>
+        Welkom in de eerste sectie van deze pagina. Voeg hier je inhoud toe!
+      </p> -->
     </div>
 
-    <!-- Afspraak knop -->
-    <button class="floating-button">Maak afspraak</button>
+    <div class="section section-two">
+      <h2>Sectie 2</h2>
+      <p>
+        Hier kun je meer informatie over jouw diensten, producten of bedrijf
+        geven.
+      </p>
+    </div>
+
+    <div class="section section-three">
+      <h2>Sectie 3</h2>
+      <p>
+        Sluit je pagina af met belangrijke informatie, een call-to-action of
+        contactgegevens.
+      </p>
+    </div>
+
+    <!-- Maak Afspraak Button -->
+    <button class="floating-button" onclick="openModal()">Maak afspraak</button>
+
+    <!-- Modal HTML -->
+    <div id="appointmentModal" class="modal">
+      <div class="modal-content">
+        <span class="close" onclick="closeModal()">&times;</span>
+        <iframe
+          src="https://flawless-beauty.salonized.com/widget_bookings/new"
+          frameborder="0"
+          style="width: 100%; height: 100%"
+          allowfullscreen
+        ></iframe>
+      </div>
+    </div>
   </body>
 </html>
