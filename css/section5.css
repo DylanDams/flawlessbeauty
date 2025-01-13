@@ -1,4 +1,3 @@
-/* Footer Styling */
 .footer {
   background-color: #484036;
   color: white;
@@ -30,12 +29,12 @@
 }
 
 .footer a:hover {
-  color: #d4af37; /* Elegante goudkleur bij hover */
+  color: #d4af37;
 }
 
 .footer p {
   display: flex;
-  align-items: center; /* Zorgt ervoor dat het icoon en de tekst verticaal gecentreerd zijn */
+  align-items: center;
   font-size: 16px;
   line-height: 1.6;
   margin: 5px 0;
@@ -55,28 +54,28 @@
 }
 
 .footer .social-icon:hover {
-  transform: scale(1.2); /* Vergroot icoon bij hover */
+  transform: scale(1.2);
 }
 
 .footer-bottom {
   text-align: center;
   margin-top: 20px;
-  border-top: 1px solid #dfd9cd; /* Scheidingslijn boven de tekst */
+  border-top: 1px solid #dfd9cd;
   padding-top: 10px;
   font-size: 14px;
   color: #a1a1a1;
 }
 
 .instagram-icon {
-  background-color: #dfd9cd; /* Achtergrondkleur */
+  background-color: #dfd9cd;
   display: flex;
   margin-right: 1vw !important;
   justify-content: center;
-  align-items: center; /* Zorgt dat inhoud gecentreerd wordt */
-  width: 40px; /* Breedte van de knop */
-  height: 40px; /* Hoogte van de knop (moet gelijk zijn aan breedte voor een cirkel) */
-  border-radius: 50%; /* Maakt de knop rond */
-  transition: transform 0.3s ease, background-color 0.3s ease; /* Gladde overgangseffecten */
+  align-items: center;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  transition: transform 0.3s ease, background-color 0.3s ease;
 }
 
 .footer-bottom p {
@@ -85,7 +84,7 @@
 
 .footer-right p {
   display: flex;
-  justify-content: space-between; /* Zorgt voor ruimte tussen de dag en tijd */
+  justify-content: space-between;
   font-size: 16px;
   color: #e4e4e4;
   margin: 5px 0;
@@ -96,15 +95,78 @@
 }
 
 .footer-right p span {
-  display: inline-block; /* Zorgt ervoor dat de dagen en tijden netjes naast elkaar staan */
+  display: inline-block;
 }
 
 .instagram-icon:hover {
-  background-color: #d4af37; /* Elegante goudkleur bij hover */
-  transform: scale(1.2); /* Vergroot de knop bij hover */
+  background-color: #d4af37;
+  transform: scale(1.2);
 }
 
 .instagram-icon img {
   width: 20px;
   height: 20px;
+}
+
+@media screen and (max-width: 768px) {
+  .footer {
+    padding: 20px 10px;
+    text-align: center;
+  }
+
+  .footer-container {
+    flex-direction: column;
+    gap: 30px;
+    align-items: center;
+  }
+
+  .footer h3 {
+    font-size: 18px;
+  }
+
+  .footer p,
+  .footer a {
+    font-size: 14px;
+    line-height: 1.4;
+  }
+
+  .footer .social-media {
+    justify-content: center;
+    gap: 10px;
+  }
+
+  .footer .social-icon {
+    width: 30px;
+    height: 30px;
+  }
+
+  .footer-bottom {
+    margin-top: 15px;
+    padding-top: 10px;
+    font-size: 12px;
+  }
+
+  .footer-right p {
+    flex-direction: column;
+    align-items: center;
+    gap: 5px;
+  }
+
+  .footer-right .time {
+    margin-left: 0;
+  }
+
+  .instagram-icon {
+    width: 35px;
+    height: 35px;
+  }
+
+  .instagram-icon img {
+    width: 18px;
+    height: 18px;
+  }
+
+  .footer-right .time {
+    margin-bottom: 2vh;
+  }
 }

@@ -1,17 +1,16 @@
 .section-welcome {
-  background-color: #dfd9cd; /* Achtergrondkleur zoals gevraagd */
+  background-color: #dfd9cd;
   display: flex;
   justify-content: center;
   align-items: center;
-  height: auto; /* Zorgt ervoor dat de sectie het volledige scherm vult */
+  height: auto;
   padding-top: 15vh;
 }
 
 .welcome-container {
-  text-align: center; /* Centreert de tekst */
+  text-align: center;
 }
 
-/* Animatie voor de welkomtekst */
 .welcome-text {
   max-width: 800px;
   margin: 0 auto;
@@ -19,8 +18,8 @@
 
 .welcome-text h1 {
   opacity: 0;
-  transform: translateY(30px); /* Start vanuit beneden */
-  transition: opacity 1s ease-out, transform 1s ease-out; /* Aangename overgangsanimatie */
+  transform: translateY(30px);
+  transition: opacity 1s ease-out, transform 1s ease-out;
 }
 
 .welcome-text h1.animate {
@@ -30,8 +29,8 @@
 
 .welcome-text p {
   opacity: 0;
-  transform: translateY(30px); /* Start vanuit beneden */
-  transition: opacity 1s ease-out 0.5s, transform 1s ease-out 0.5s; /* Wacht 0.5 seconden voordat de animatie start */
+  transform: translateY(30px);
+  transition: opacity 1s ease-out 0.5s, transform 1s ease-out 0.5s;
   margin-bottom: 15vh !important;
 }
 
@@ -60,4 +59,14 @@
 
 h1 {
   letter-spacing: 1.5px;
+}
+
+@media screen and (max-width: 768px) {
+  .section-welcome {
+    padding-top: 40vh;
+  }
+
+  .welcome-container {
+    padding-bottom: 40vh;
+  }
 }

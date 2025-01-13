@@ -1,62 +1,111 @@
 .section-four {
-  background-color: #dfd9cd; /* Lichte beige achtergrondkleur */
+  background-color: #dfd9cd;
   display: flex;
-  justify-content: center; /* Centreer de inhoud horizontaal */
-  align-items: center; /* Centreer de inhoud verticaal */
-  height: auto; /* Hoogte aangepast aan inhoud */
-  padding: 0; /* Geen extra padding zodat de inhoud goed aansluit */
+  justify-content: center;
+  align-items: center;
+  height: auto;
+  padding: 0;
 }
 
 .section-four-container {
   display: flex;
-  justify-content: space-between; /* Geen ruimte tussen de tekst en afbeelding */
-  align-items: center; /* Verticaal centreren van tekst en afbeelding */
+  justify-content: space-between;
+  align-items: center;
   width: 100%;
 }
 
 .section-four-container .content-left {
   flex: 1;
   display: block;
-  text-align: left; /* Tekst aan de linkerzijde */
-  padding: 10vw; /* Padding rondom de tekst */
-  color: #484036; /* Donkerbruine tekstkleur */
+  text-align: left;
+  padding: 10vw;
+  color: #484036;
 }
 
 .section-four-container .content-left p {
   font-size: 18px;
-  color: #484036; /* Donkerbruine tekstkleur */
+  color: #484036;
   line-height: 1.6;
 }
 
 .section-four-container .content-right {
   flex: 1;
-  text-align: right; /* Afbeelding aan de rechterzijde */
+  text-align: right;
   padding-top: 5vh;
   padding-bottom: 5vh;
-  padding-right: 5vw; /* Geen padding aan de rechterzijde */
+  padding-right: 5vw;
 }
 
 .section-four-container .content-right .me-image {
-  width: 100%; /* Zorg dat de afbeelding de volledige breedte van de container vult */
-  max-width: 600px; /* Beperk de maximale breedte van de afbeelding */
+  width: 100%;
+  max-width: 600px;
   border-radius: 30%;
 }
 
 .contact-button {
   display: inline-block;
-  background-color: transparent; /* Transparante achtergrond */
-  color: #484036; /* Donkerbruine tekstkleur */
-  border: 2px solid #484036; /* Omlijning in donkerbruin */
-  padding: 10px 50px; /* Padding rondom de tekst */
+  background-color: transparent;
+  color: #484036;
+  border: 2px solid #484036;
+  padding: 10px 50px;
   font-size: 16px;
-  text-decoration: none; /* Verwijder onderstreping */
-  border-radius: 25px; /* Ronde hoeken voor de knop */
-  margin-top: 20px; /* Ruimte boven de knop */
-  transition: all 0.3s ease; /* Mooi animatie-effect voor hover */
+  text-decoration: none;
+  border-radius: 25px;
+  margin-top: 20px;
+  transition: all 0.3s ease;
 }
 
 .contact-button:hover {
-  background-color: #484036; /* Donkerbruine achtergrond bij hover */
-  color: #dfd9cd; /* Lichte tekstkleur bij hover */
-  border-color: #3d2f28; /* Iets lichtere randkleur bij hover */
+  background-color: #484036;
+  color: #dfd9cd;
+  border-color: #3d2f28;
+}
+
+@media screen and (max-width: 768px) {
+  .section-four {
+    flex-direction: column;
+    padding-top: 0 !important;
+    padding: 20px;
+    width: 100%;
+    box-sizing: border-box;
+    overflow-x: hidden;
+  }
+
+  .section-four svg {
+    height: auto;
+    width: 100vw;
+  }
+
+  .section-four-container {
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+    box-sizing: border-box;
+  }
+
+  .section-four-container .content-left {
+    padding: 5vw;
+    text-align: center;
+    width: 100%;
+    box-sizing: border-box;
+  }
+
+  .section-four-container .content-right {
+    padding: 10px;
+    text-align: center;
+    width: 100%;
+    box-sizing: border-box;
+  }
+
+  .section-four-container .content-right .me-image {
+    width: 80%;
+    max-width: 300px;
+    margin: 0 auto;
+  }
+
+  .contact-button {
+    padding: 10px 30px;
+    font-size: 14px;
+    margin-top: 15px;
+  }
 }
