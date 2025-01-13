@@ -1,0 +1,50 @@
+.section-three {
+  background-color: #484036; /* Luxe, neutrale kleur voor de achtergrond */
+  display: flex;
+  justify-content: center; /* Centreer de inhoud horizontaal */
+  align-items: center; /* Centreer de inhoud verticaal */
+  height: auto;
+  padding-bottom: 5vh;
+}
+
+.prijslijst-container {
+  text-align: center; /* Centreer de tekst in de container */
+  max-width: 800px; /* Zet een maximale breedte voor de lijst */
+  width: 100%; /* Zorg ervoor dat het container de volledige breedte benut */
+}
+
+.prijslijst-left {
+  font-weight: 600;
+  color: #dfdfdf; /* Diepe grijze kleur voor luxe */
+  margin-bottom: 50px; /* Vergrote ruimte onder de titel voor meer afstand */
+  letter-spacing: 2px; /* Vergroot de ruimte tussen de letters voor een chique effect */
+  font-family: "dream-avenue";
+}
+
+.price-list {
+  font-size: 20px; /* Grotere tekst voor de prijslijst */
+  color: #cfcece; /* Grijze kleur voor de tekst */
+  list-style-type: none;
+  padding: 0;
+  margin: 0;
+  text-align: left; /* Lijstitems links uitlijnen */
+}
+
+.price-list li {
+  margin: 15px 0; /* Ruimte tussen de lijstitems */
+  font-weight: 500; /* Maak de tekst dikker voor een elegantere uitstraling */
+  padding-bottom: 10px; /* Extra ruimte onder de items */
+  display: flex;
+  justify-content: space-between; /* Zorg dat de tekst en prijzen op één lijn staan */
+}
+
+.price-list li span {
+  display: inline-block;
+  width: 50%; /* Zorg ervoor dat de tekst en prijs netjes op één lijn staan */
+  text-align: left; /* Zet de tekst links uitgelijnd */
+}
+
+.price-list li .price {
+  text-align: right; /* Zet de prijs rechts uitgelijnd */
+  width: 30%; /* Zorg ervoor dat de prijs niet te ver naar rechts staat */
+}

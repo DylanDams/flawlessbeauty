@@ -1,0 +1,157 @@
+/* Elegante animatie voor het in beeld komen van de sectie */
+@keyframes fadeIn {
+  0% {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.section-two {
+  background-color: #faf8f6;
+  height: auto;
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  padding: 10vh 0;
+  position: relative;
+  animation: fadeIn 1s ease-out forwards;
+}
+
+.section-two::after {
+  content: "";
+  position: absolute;
+  bottom: -1px;
+  left: 0;
+  width: 100%;
+  height: 80px;
+  background: #484036;
+  clip-path: polygon(0 100%, 100% 50%, 100% 100%, 0 100%);
+  z-index: -1;
+}
+
+.section-two-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 90%;
+  max-width: 1200px; /* Beperkt de breedte voor een strakke uitstraling */
+  margin: 0 auto;
+  opacity: 0;
+  animation: fadeIn 1s ease-out 0.5s forwards;
+}
+
+.content-left {
+  flex: 1;
+  position: relative;
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+}
+
+.content-left img {
+  width: 80%;
+  max-width: 500px;
+  height: auto;
+  border-radius: 15px; /* Afgeronde hoeken voor een zachtere uitstraling */
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.content-right {
+  flex: 1;
+  text-align: left;
+  padding-left: 3vw;
+  color: #484036;
+  opacity: 0;
+  animation: fadeIn 1s ease-out 0.7s forwards;
+}
+
+.content-right h2 {
+  font-size: 48px;
+  font-weight: 600;
+  letter-spacing: 1.5px;
+  color: #484036;
+  margin-bottom: 25px;
+  position: relative;
+}
+
+.content-right h2::after {
+  content: "";
+  position: absolute;
+  bottom: -10px;
+  left: 0;
+  width: 50px;
+  height: 3px;
+  background-color: #6f6d6d;
+  border-radius: 2px;
+}
+
+.treatment-section {
+  margin-top: 15px;
+  padding: 15px;
+  background-color: #ffffff; /* Zachte witte achtergrond voor kaarten */
+  border: 1px solid #ddd; /* Dunne rand voor subtiele structuur */
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Zachte schaduw voor diepte */
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.treatment-section:hover {
+  transform: translateY(-5px); /* Lichte hover-effect voor interactie */
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.15);
+}
+
+.treatment-title {
+  font-size: 22px;
+  font-weight: 600;
+  color: #484036;
+  cursor: pointer;
+  padding: 10px 15px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-bottom: 1px solid #ddd;
+  transition: background-color 0.3s ease;
+}
+
+.treatment-title:hover {
+  background-color: #f7f5f3; /* Subtiele achtergrondkleur bij hover */
+}
+
+.treatment-description {
+  font-size: 16px;
+  line-height: 1.8;
+  color: #6f6d6d;
+  padding: 10px 15px;
+  display: none;
+}
+
+.slideshow {
+  position: relative;
+  width: 150%;
+  height: 70vh !important;
+  overflow: hidden;
+  margin: 0;
+  display: flex;
+  justify-content: flex-start;
+}
+
+.slideshow img {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  opacity: 0;
+  transition: opacity 1s ease-in-out;
+  border-radius: 15px;
+}
+
+.slideshow img.active {
+  opacity: 1;
+  z-index: 1;
+}

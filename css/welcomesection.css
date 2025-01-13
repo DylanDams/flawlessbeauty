@@ -1,0 +1,63 @@
+.section-welcome {
+  background-color: #dfd9cd; /* Achtergrondkleur zoals gevraagd */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: auto; /* Zorgt ervoor dat de sectie het volledige scherm vult */
+  padding-top: 15vh;
+}
+
+.welcome-container {
+  text-align: center; /* Centreert de tekst */
+}
+
+/* Animatie voor de welkomtekst */
+.welcome-text {
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+.welcome-text h1 {
+  opacity: 0;
+  transform: translateY(30px); /* Start vanuit beneden */
+  transition: opacity 1s ease-out, transform 1s ease-out; /* Aangename overgangsanimatie */
+}
+
+.welcome-text h1.animate {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.welcome-text p {
+  opacity: 0;
+  transform: translateY(30px); /* Start vanuit beneden */
+  transition: opacity 1s ease-out 0.5s, transform 1s ease-out 0.5s; /* Wacht 0.5 seconden voordat de animatie start */
+  margin-bottom: 15vh !important;
+}
+
+.welcome-text p.animate {
+  opacity: 1;
+  transform: translateY(0);
+  margin-bottom: 15vh;
+}
+
+.cta-button {
+  display: inline-block;
+  background-color: #484036;
+  color: #dfd9cd;
+  border: 2px solid #484036;
+  padding: 15px 40px;
+  font-size: 16px;
+  text-decoration: none;
+  border-radius: 25px;
+  transition: all 0.3s ease;
+}
+
+.cta-button:hover {
+  background-color: #dfd9cd;
+  color: #484036;
+}
+
+h1 {
+  letter-spacing: 1.5px;
+}

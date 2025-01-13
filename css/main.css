@@ -1,0 +1,120 @@
+body {
+  margin: 0;
+  font-family: "dream-avenue";
+  overflow-x: hidden;
+}
+
+.location-svg {
+  width: 20px;
+  margin-top: 1vw;
+  margin-right: 1vw;
+}
+
+/* Content secties */
+.section {
+  text-align: center;
+  color: black;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  width: 100vw;
+}
+
+/* Voor de video-achtergrond */
+.background-video {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover; /* Zorg dat de video altijd het hele scherm/div vult */
+  z-index: -1; /* Zorg dat de video achter de content staat */
+  margin: 0; /* Verwijder eventuele marges */
+  padding: 0; /* Verwijder eventuele padding */
+}
+
+.section-one {
+  position: relative;
+  margin: 0; /* Verwijder ruimte rond de sectie */
+  padding: 0; /* Verwijder eventuele padding */
+  height: 100vh; /* Sectie moet volledig schermhoogte innemen */
+  width: 100vw; /* Zorg ervoor dat de sectie volledig schermbreedte inneemt */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  color: white;
+  overflow: hidden;
+}
+
+.section-one .overlay {
+  position: relative;
+  z-index: 2; /* Zorg dat de content zichtbaar is boven de video */
+}
+
+.section-one::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.5); /* Donkere overlay */
+  z-index: 1;
+}
+
+.section-one > * {
+  position: relative;
+  z-index: 2;
+}
+
+.section h2 {
+  font-size: 46px !important;
+  font-weight: 600;
+  margin-bottom: 20px;
+}
+
+.section p {
+  font-size: 18px;
+  line-height: 1.6;
+  margin: 0 auto;
+  max-width: 800px;
+}
+
+.intro {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100vh;
+  background-color: #dfd9cd;
+  color: white;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  text-align: center;
+  z-index: 10000;
+  transition: transform 2s ease-in-out;
+}
+
+.swipe-out {
+  transform: translateX(100%); /* Intro schuift naar rechts uit beeld */
+}
+
+.intro h1 {
+  font-size: 48px;
+  font-weight: 600;
+  margin: 0;
+}
+
+.intro p {
+  font-size: 24px;
+  margin-top: 20px;
+}
+
+.intro-logo {
+  height: 50vh;
+  transition: opacity 0.5s ease-out;
+}

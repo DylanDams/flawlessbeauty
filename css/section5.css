@@ -1,0 +1,110 @@
+/* Footer Styling */
+.footer {
+  background-color: #484036;
+  color: white;
+  padding: 40px 20px;
+}
+
+.footer-container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  gap: 20px;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.footer h3 {
+  font-size: 20px;
+  font-weight: 600;
+  margin-bottom: 15px;
+}
+
+.footer p,
+.footer a {
+  font-size: 16px;
+  line-height: 1.6;
+  margin: 5px 0;
+  color: #e4e4e4;
+  text-decoration: none;
+}
+
+.footer a:hover {
+  color: #d4af37; /* Elegante goudkleur bij hover */
+}
+
+.footer p {
+  display: flex;
+  align-items: center; /* Zorgt ervoor dat het icoon en de tekst verticaal gecentreerd zijn */
+  font-size: 16px;
+  line-height: 1.6;
+  margin: 5px 0;
+  color: #e4e4e4;
+  text-decoration: none;
+}
+
+.footer .social-media {
+  display: flex;
+  gap: 15px;
+}
+
+.footer .social-icon {
+  width: 24px;
+  height: 24px;
+  transition: transform 0.3s ease;
+}
+
+.footer .social-icon:hover {
+  transform: scale(1.2); /* Vergroot icoon bij hover */
+}
+
+.footer-bottom {
+  text-align: center;
+  margin-top: 20px;
+  border-top: 1px solid #dfd9cd; /* Scheidingslijn boven de tekst */
+  padding-top: 10px;
+  font-size: 14px;
+  color: #a1a1a1;
+}
+
+.instagram-icon {
+  background-color: #dfd9cd; /* Achtergrondkleur */
+  display: flex;
+  margin-right: 1vw !important;
+  justify-content: center;
+  align-items: center; /* Zorgt dat inhoud gecentreerd wordt */
+  width: 40px; /* Breedte van de knop */
+  height: 40px; /* Hoogte van de knop (moet gelijk zijn aan breedte voor een cirkel) */
+  border-radius: 50%; /* Maakt de knop rond */
+  transition: transform 0.3s ease, background-color 0.3s ease; /* Gladde overgangseffecten */
+}
+
+.footer-bottom p {
+  justify-content: center;
+}
+
+.footer-right p {
+  display: flex;
+  justify-content: space-between; /* Zorgt voor ruimte tussen de dag en tijd */
+  font-size: 16px;
+  color: #e4e4e4;
+  margin: 5px 0;
+}
+
+.footer-right .time {
+  margin-left: 3vw;
+}
+
+.footer-right p span {
+  display: inline-block; /* Zorgt ervoor dat de dagen en tijden netjes naast elkaar staan */
+}
+
+.instagram-icon:hover {
+  background-color: #d4af37; /* Elegante goudkleur bij hover */
+  transform: scale(1.2); /* Vergroot de knop bij hover */
+}
+
+.instagram-icon img {
+  width: 20px;
+  height: 20px;
+}

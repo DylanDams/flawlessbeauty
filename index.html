@@ -3,186 +3,52 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Doorzichtige Navbar</title>
+    <title>Flawless Beauty</title>
     <link
       href="https://fonts.googleapis.com/css2?family=Work+Sans:wght@400;600&display=swap"
       rel="stylesheet"
     />
-    <style>
-      body {
-        margin: 0;
-        font-family: "Work Sans", sans-serif;
-      }
-
-      /* Stijlen voor de navbar */
-      .navbar {
-        display: flex;
-        justify-content: space-between;
-        align-items: center;
-        padding: 1.5vw 20px;
-        background-color: transparent;
-        position: fixed;
-        width: 100%;
-        z-index: 1000;
-      }
-
-      .navbar .container {
-        max-width: 1200px;
-        margin: 0 auto;
-        width: 100%;
-        display: flex;
-        justify-content: space-between;
-        align-items: center;
-      }
-
-      .navbar a {
-        color: white;
-        text-decoration: none;
-        margin: 0 15px;
-        font-size: 16px;
-        font-weight: 400;
-        position: relative; /* Noodzakelijk voor pseudo-element */
-      }
-
-      .navbar a::after {
-        content: "";
-        position: absolute;
-        bottom: -2px;
-        left: 0;
-        width: 0;
-        height: 1px;
-        background-color: white;
-        transition: width 0.5s ease;
-      }
-
-      .navbar a:hover::after {
-        width: 100%; /* De volledige breedte van de tekst */
-      }
-
-      .navbar .logo {
-        font-size: 20px;
-        font-weight: 600;
-        color: white;
-      }
-
-      /* Content secties */
-      .section {
-        text-align: center;
-        color: black;
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        flex-direction: column;
-        padding: 20px;
-      }
-
-      .section-one {
-        background-image: url("img/image0.jpeg");
-        height: 100vh;
-      }
-
-      .section-two {
-        background-color: #dfd9cd;
-        height: 300%;
-      }
-
-      .section-three {
-        background-color: #bdb5ac;
-        height: 300%;
-      }
-
-      .section h2 {
-        font-size: 32px;
-        font-weight: 600;
-        margin-bottom: 20px;
-      }
-
-      .section p {
-        font-size: 18px;
-        line-height: 1.6;
-        margin: 0 auto;
-        max-width: 800px;
-      }
-
-      /* Afspraak knop */
-      .floating-button {
-        position: fixed;
-        bottom: 20px;
-        right: 20px;
-        background-color: #484036;
-        color: white;
-        border: none;
-        padding: 15px 25px;
-        font-size: 16px;
-        font-family: "Work Sans", sans-serif;
-        font-weight: 600;
-        border-radius: 50px;
-        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-        cursor: pointer;
-        transition: all 0.3s ease;
-      }
-
-      .floating-button:hover {
-        background-color: #584e42;
-        box-shadow: 0 6px 8px rgba(0, 0, 0, 0.2);
-        transform: translateY(-3px);
-      }
-
-      /* Modal css */
-      .modal {
-        display: none;
-        position: fixed;
-        z-index: 1001;
-        left: 0;
-        top: 0;
-        width: 100%;
-        height: 100%;
-        background-color: rgba(0, 0, 0, 0.8);
-        justify-content: center;
-        align-items: center;
-      }
-
-      .modal-content {
-        background: white;
-        width: 90%;
-        max-width: 800px;
-        height: 80%;
-        border-radius: 8px;
-        overflow: hidden;
-        position: relative;
-      }
-
-      .close {
-        position: absolute;
-        top: 20px;
-        right: 2vw;
-        font-size: 30px;
-        font-weight: bold;
-        color: black;
-        cursor: pointer;
-      }
-
-      .close:hover {
-        color: red;
-      }
-    </style>
+    <link href="css/welcomesection.css" rel="stylesheet" />
+    <link href="css/section2.css" rel="stylesheet" />
+    <link href="css/section3.css" rel="stylesheet" />
+    <link href="css/section4.css" rel="stylesheet" />
+    <link href="css/section5.css" rel="stylesheet" />
+    <link href="css/navbar.css" rel="stylesheet" />
+    <link href="css/main.css" rel="stylesheet" />
+    <script src="js/introloader.js"></script>
+    <script src="js/slideshow.js"></script>
+    <script src="js/showtext.js"></script>
     <script>
-      function openModal() {
-        document.getElementById("appointmentModal").style.display = "flex";
-      }
+      function toggleDescription(id) {
+        var description = document.getElementById(id);
+        var treatmentSection = description.closest(".treatment-section");
 
-      function closeModal() {
-        document.getElementById("appointmentModal").style.display = "none";
+        if (description.style.display === "block") {
+          description.style.display = "none";
+          treatmentSection.style.height = "auto";
+        } else {
+          description.style.display = "block";
+          treatmentSection.style.height = "auto";
+        }
       }
     </script>
   </head>
   <body>
+    <div id="intro" class="intro">
+      <img src="img/logozwart.svg" alt="Logo" class="intro-logo" />
+    </div>
+
     <!-- Navbar -->
     <nav class="navbar">
       <div class="container">
-        <div class="logo">Logo</div>
-        <div class="menu">
+        <div class="menu-left">
           <a href="#behandelingen">Behandelingen</a>
+          <a href="#prijslijst">Prijslijst</a>
+        </div>
+        <div class="logo">
+          <img src="img/logowitklein.svg" alt="Logo" class="logo-img" />
+        </div>
+        <div class="menu-right">
           <a href="#over-mij">Over mij</a>
           <a href="#contact">Contact</a>
         </div>
@@ -191,42 +57,324 @@
 
     <!-- Content secties -->
     <div class="section section-one">
-      <!-- <h2>Sectie 1</h2>
-      <p>
-        Welkom in de eerste sectie van deze pagina. Voeg hier je inhoud toe!
-      </p> -->
+      <video autoplay muted loop class="background-video">
+        <source src="img/flawlessbeauty.mp4" type="video/mp4" />
+        Your browser does not support the video tag.
+      </video>
     </div>
 
-    <div class="section section-two">
-      <h2>Sectie 2</h2>
-      <p>
-        Hier kun je meer informatie over jouw diensten, producten of bedrijf
-        geven.
-      </p>
+    <div class="section section-welcome">
+      <div class="welcome-container">
+        <div class="welcome-text">
+          <h1>Welkom bij Flawlessbeauty</h1>
+          <p>Het adres voor de mooiste nagels!</p>
+        </div>
+      </div>
+      <svg
+        viewBox="0 0 3840 96"
+        preserveAspectRatio="none"
+        style="margin-top: -0.5px"
+      >
+        <g id="Page-1">
+          <g id="Artboard-Copy-3" transform="translate(0.000000, -2328.000000)">
+            <g
+              id="style-element/wave/wave-D"
+              transform="translate(0.000000, 2328.000000)"
+            >
+              <path
+                d="M3840,96 L0,96 L0,56.8695652 C226.666667,18.9565217 546.666667,0 960,0 C1156.94118,0 1356.90934,9.68636678 1558.94298,22.9054085 L1584.20788,24.5757429 L1609.49387,26.2802052 L1634.80054,28.0161244 L1660.12748,29.7808296 L1685.47426,31.5716501 L1710.84047,33.3859149 L1736.22569,35.2209532 L1761.62951,37.074094 L1812.49125,40.824 L1850.96631,43.685184 L1960.36264,51.8498416 L1999.5204,54.7540967 L2025.64431,56.6784755 L2051.78267,58.5900992 L2077.93505,60.4861199 L2104.101,62.36369 L2136.82685,64.6803682 L2136.82685,64.6803682 L2169.57233,66.958206 L2195.78228,68.7487736 L2221.03243,70.4435074 C2439.91236,84.9982223 2659.95618,96 2880,96 C2897.33333,96 2914.48533,95.9744 2931.456,95.9232 L2956.776,95.8272 C3351.32533,94.0224 3645.73333,78.08 3840,48 L3840,96 Z"
+                fill="#faf8f6"
+              ></path>
+            </g>
+          </g>
+        </g>
+      </svg>
+    </div>
+
+    <div id="behandelingen" class="section section-two">
+      <div class="section-two-container">
+        <div class="content-left">
+          <div class="slideshow">
+            <img src="img/nagels1.jpeg" />
+            <img src="img/nagels2.jpeg" />
+            <img src="img/nagels3.jpg" />
+            <img src="img/nagels4.jpg" />
+            <img src="img/nagels5.jpg" />
+            <img src="img/nagels6.png" />
+            <img src="img/nagels7.jpg" />
+            <img src="img/nagels8.jpg" />
+          </div>
+        </div>
+
+        <div class="content-right">
+          <h2>Behandelingen</h2>
+
+          <!-- BIAB Section -->
+          <div class="treatment-section">
+            <h3
+              onclick="toggleDescription('biab-description')"
+              class="treatment-title"
+            >
+              BIAB (Natural Nail Treatment)
+            </h3>
+            <p id="biab-description" class="treatment-description">
+              <strong>BIAB treatment & manicure</strong><br />
+              De natuurlijke nagels worden verstevigd met een gel product. Op de
+              afspraak bekijk ik of ik ga werken met een soft gel (zacht
+              product) of een hard gel (hard product), dit is afhankelijk van de
+              natuurlijke nagel. De nagelriemen worden behandeld doormiddel van
+              een manicure. Deze behandeling is ZONDER gelpolish en er wordt
+              gewerkt op de lengte van de natuurlijke nagel.<br /><br />
+              <strong>BIAB treatment & manicure + gelpolish</strong><br />
+              De natuurlijke nagels worden verstevigd met een gel product. Op de
+              afspraak bekijk ik of ik ga werken met een soft gel (zacht
+              product) of een hard gel (hard product), dit is afhankelijk van de
+              natuurlijke nagel. De nagelriemen worden behandeld doormiddel van
+              een manicure. Deze behandeling is MET gelpolish en er wordt
+              gewerkt op de lengte van de natuurlijke nagel.
+            </p>
+          </div>
+
+          <div class="treatment-section">
+            <h3
+              onclick="toggleDescription('nailextensions-description')"
+              class="treatment-title"
+            >
+              NAILEXTENSIONS
+            </h3>
+            <p
+              id="nailextensions-description"
+              class="treatment-description"
+              style="display: none"
+            >
+              <strong>Nail extensions & manicure</strong><br />
+              De natuurlijke nagels worden verlengd met gel, op de afspraak kijk
+              ik of ik met sjablonen ga werken of upperforms, afhankelijk van de
+              natuurlijke nagel. Deze behandeling is ZONDER gelpolish.<br /><br />
+
+              <strong>Nail extensions & manicure + gelpolish</strong><br />
+              De natuurlijke nagels worden verlengd met gel, op de afspraak kijk
+              ik of ik met sjablonen ga werken of upperforms, afhankelijk van de
+              natuurlijke nagel. Deze behandeling is MET gelpolish.
+            </p>
+          </div>
+
+          <div class="treatment-section">
+            <h3
+              onclick="toggleDescription('gelpolish-description')"
+              class="treatment-title"
+            >
+              GELPOLISH
+            </h3>
+            <p
+              id="gelpolish-description"
+              class="treatment-description"
+              style="display: none"
+            >
+              <strong>Gelpolish & manicure</strong><br />
+              De natuurlijke nagels worden behandeld met een gelpolish en de
+              nagelriemen met een manicure. Dit blijft gemiddeld 2-3 weken
+              zitten. Wilt u langer genieten van mooie nagels? Kies dan voor een
+              BIAB behandeling.
+            </p>
+          </div>
+
+          <div class="treatment-section">
+            <h3
+              onclick="toggleDescription('nailart-description')"
+              class="treatment-title"
+            >
+              NAILART
+            </h3>
+            <p
+              id="nailart-description"
+              class="treatment-description"
+              style="display: none"
+            >
+              Deze behandeling kunt u boeken als extra bij een BIAB,
+              Nailextensions of Gelpolish behandeling. Denk aan bijvoorbeeld een
+              frenchtip of een babyboom.
+            </p>
+          </div>
+
+          <div class="treatment-section">
+            <h3
+              onclick="toggleDescription('setverwijderen-description')"
+              class="treatment-title"
+            >
+              SET VERWIJDEREN
+            </h3>
+            <p
+              id="setverwijderen-description"
+              class="treatment-description"
+              style="display: none"
+            >
+              <strong>BIAB verwijderen</strong><br />
+              Hierbij wordt de BIAB op een professionele manier van de nagels
+              verwijderd.<br /><br />
+
+              <strong>Nailextensions verwijderen</strong><br />
+              Hierbij worden de Nailextensions op een professionele manier van
+              de nagels verwijderd.<br /><br />
+
+              <strong>Gellak verwijderen</strong><br />
+              Hierbij wordt de gellak op een professionele manier van de nagels
+              verwijderd.
+            </p>
+          </div>
+        </div>
+      </div>
     </div>
 
     <div class="section section-three">
-      <h2>Sectie 3</h2>
-      <p>
-        Sluit je pagina af met belangrijke informatie, een call-to-action of
-        contactgegevens.
-      </p>
-    </div>
+      <div class="prijslijst-container">
+        <div class="prijslijst-left">
+          <h2>Prijslijst</h2>
+        </div>
 
-    <!-- Maak Afspraak Button -->
-    <button class="floating-button" onclick="openModal()">Maak afspraak</button>
-
-    <!-- Modal HTML -->
-    <div id="appointmentModal" class="modal">
-      <div class="modal-content">
-        <span class="close" onclick="closeModal()">&times;</span>
-        <iframe
-          src="https://flawless-beauty.salonized.com/widget_bookings/new"
-          frameborder="0"
-          style="width: 100%; height: 100%"
-          allowfullscreen
-        ></iframe>
+        <div class="prijslijst-right">
+          <ul class="price-list">
+            <li>
+              <span>BIAB treatment & manicure</span
+              ><span class="price">€40,-</span>
+            </li>
+            <li>
+              <span>BIAB treatment & manicure + gelpolish</span
+              ><span class="price">€45,-</span>
+            </li>
+            <li>
+              <span>Nailextensions & manicure</span
+              ><span class="price">€55,-</span>
+            </li>
+            <li>
+              <span>Nailextensions & manicure + gelpolish</span
+              ><span class="price">€60,-</span>
+            </li>
+            <li>
+              <span>Gelpolish & manicure</span><span class="price">€25,-</span>
+            </li>
+            <li><span>Nailart</span><span class="price">€5,-</span></li>
+            <li>
+              <span>BIAB verwijderen</span><span class="price">€10,-</span>
+            </li>
+            <li>
+              <span>Nailextensions verwijderen</span
+              ><span class="price">€15,-</span>
+            </li>
+            <li>
+              <span>Gellak verwijderen</span><span class="price">€7,50</span>
+            </li>
+          </ul>
+        </div>
       </div>
     </div>
+
+    <div class="section section-four">
+      <svg
+        viewBox="0 0 3840 96"
+        preserveAspectRatio="none"
+        style="transform: rotate(180deg); margin-top: -0.5px"
+      >
+        <g id="Page-1">
+          <g id="Artboard-Copy-3" transform="translate(0.000000, -2328.000000)">
+            <g
+              id="style-element/wave/wave-D"
+              transform="translate(0.000000, 2328.000000)"
+            >
+              <path
+                d="M3840,96 L0,96 L0,56.8695652 C226.666667,18.9565217 546.666667,0 960,0 C1156.94118,0 1356.90934,9.68636678 1558.94298,22.9054085 L1584.20788,24.5757429 L1609.49387,26.2802052 L1634.80054,28.0161244 L1660.12748,29.7808296 L1685.47426,31.5716501 L1710.84047,33.3859149 L1736.22569,35.2209532 L1761.62951,37.074094 L1812.49125,40.824 L1850.96631,43.685184 L1960.36264,51.8498416 L1999.5204,54.7540967 L2025.64431,56.6784755 L2051.78267,58.5900992 L2077.93505,60.4861199 L2104.101,62.36369 L2136.82685,64.6803682 L2136.82685,64.6803682 L2169.57233,66.958206 L2195.78228,68.7487736 L2221.03243,70.4435074 C2439.91236,84.9982223 2659.95618,96 2880,96 C2897.33333,96 2914.48533,95.9744 2931.456,95.9232 L2956.776,95.8272 C3351.32533,94.0224 3645.73333,78.08 3840,48 L3840,96 Z"
+                fill="#484036"
+              ></path>
+            </g>
+          </g>
+        </g>
+      </svg>
+      <div class="section-four-container">
+        <div class="content-left">
+          <h2>Over mij</h2>
+          <p>
+            Mijn naam is Celine Dams en ben het gezicht achter Flawless Beauty.
+            <br />
+            Ik heb passie voor nagelstyling en heb hiervoor de opleiding Naturel
+            Nail treatment en Upperforms afgerond. Inmiddels ben ik gestart met
+            mijn eigen nagelsalon aan huis. Ik werk met kwaliteitsproducten van
+            o.a Verin & My Way.
+          </p>
+          <a href="#contact" class="contact-button">Neem contact op</a>
+        </div>
+        <div class="content-right">
+          <img src="img/me.jpeg" alt="Celine Dams" class="me-image" />
+        </div>
+      </div>
+    </div>
+
+    <!-- Footer -->
+    <!-- Footer -->
+    <footer class="footer">
+      <div class="footer-container">
+        <div class="footer-left">
+          <h3>Contact</h3>
+          <p>
+            <a
+              class="instagram-icon"
+              href="mailto:flawlessbeauty@kpnmail.nl"
+              target="_blank"
+            >
+              <img src="img/mail.svg" alt="Mail" class="social-icon" />
+            </a>
+            Email: flawlessbeauty@kpnmail.nl
+          </p>
+          <p>
+            <a
+              class="instagram-icon"
+              href="https://g.co/kgs/ufyRsAV"
+              target="_blank"
+            >
+              <img src="img/pin.svg" alt="Pin" class="social-icon" />
+            </a>
+            Adres: Warmelo 5, 8103HT, Raalte
+          </p>
+        </div>
+        <div class="footer-center">
+          <h3>Sociale media</h3>
+          <div class="social-media">
+            <a
+              class="instagram-icon"
+              href="https://www.instagram.com/flawlessbeauty.nl"
+              target="_blank"
+            >
+              <img
+                src="img/instagram.svg"
+                alt="Instagram"
+                class="social-icon"
+              />
+            </a>
+          </div>
+        </div>
+        <div class="footer-right">
+          <h3>Openingstijden</h3>
+          <p><span>Maandag:</span><span class="time">19:00 - 22:00</span></p>
+          <p><span>Dinsdag:</span><span class="time">19:00 - 22:00</span></p>
+          <p><span>Woensdag:</span><span class="time">19:00 - 22:00</span></p>
+          <p><span>Donderdag:</span><span class="time">19:00 - 22:00</span></p>
+          <p><span>Vrijdag:</span><span class="time">19:00 - 22:00</span></p>
+          <p><span>Zaterdag:</span><span class="time">Gesloten</span></p>
+          <p><span>Zondag:</span><span class="time">13:00 - 22:00</span></p>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <p>&copy; 2025 Flawlessbeauty. Alle rechten voorbehouden.</p>
+      </div>
+    </footer>
+
+    <div
+      class="salonized-booking"
+      data-company="HxLXUtZVNRMMsT1ULcUfB1He"
+      data-color="#6f6d6d"
+      data-language="nl"
+      data-position="right"
+      data-outline="shadow"
+    ></div>
+    <script src="https://static-widget.salonized.com/loader.js"></script>
   </body>
 </html>
