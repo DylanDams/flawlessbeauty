@@ -71,3 +71,128 @@
 .navbar a:hover::after {
   width: 100%;
 }
+
+.hamburger-menu {
+  display: none;
+  flex-direction: column;
+  justify-content: space-between;
+  width: 30px;
+  height: 21px;
+  cursor: pointer;
+}
+
+.hamburger-menu .bar {
+  height: 4px;
+  width: 100%;
+  background-color: white;
+  border-radius: 2px;
+}
+
+.navbar-mobile {
+  display: none;
+  flex-direction: column;
+  background-color: #484036;
+  position: fixed;
+  top: 100px;
+  left: 0;
+  width: 100%;
+  height: auto;
+  justify-content: flex-start;
+  align-items: center;
+  z-index: 1001;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+}
+
+.navbar-mobile a {
+  color: white;
+  text-decoration: none;
+  font-size: 20px;
+  padding: 15px;
+  width: 100%;
+  text-align: center;
+  transition: background-color 0.3s ease, padding-left 0.3s ease;
+  display: block;
+}
+
+.navbar-mobile a:hover {
+  background-color: #544a3e;
+  padding-left: 20px;
+}
+
+.navbar-mobile a:focus {
+  outline: none;
+}
+
+.navbar-mobile .close-btn {
+  position: absolute;
+  top: 20px;
+  right: 20px;
+  font-size: 30px;
+  color: white;
+  background: none;
+  border: none;
+  cursor: pointer;
+  transition: color 0.3s ease;
+}
+
+.navbar-mobile .close-btn:hover {
+  color: #ccc;
+}
+
+.navbar.active .navbar-mobile {
+  display: flex;
+}
+
+@media (max-width: 768px) {
+  .menu-left,
+  .menu-right {
+    display: none;
+  }
+
+  .navbar .logo {
+    margin-top: 1vh;
+    flex-grow: 1;
+    display: flex;
+    justify-content: left;
+    align-items: left;
+    text-align: center;
+  }
+
+  .logo-img {
+    height: 9vh;
+    width: auto;
+    display: block;
+  }
+
+  .hamburger-menu {
+    display: flex;
+    position: absolute;
+    top: 4vh;
+    right: 15vw;
+  }
+
+  .navbar.active .menu-left,
+  .navbar.active .menu-right {
+    display: flex;
+    position: absolute;
+    top: 4vh;
+    right: 0;
+    gap: 20px;
+    flex-direction: column;
+    background-color: #484036;
+    width: 100%;
+    padding: 20px;
+    z-index: 999;
+  }
+
+  .navbar.active .hamburger-menu {
+    position: absolute;
+    top: 4vh;
+    right: 20px;
+  }
+
+  .navbar-mobile a {
+    display: block;
+    text-align: center;
+  }
+}

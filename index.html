@@ -32,6 +32,25 @@
           treatmentSection.style.height = "auto";
         }
       }
+
+      function toggleMenu() {
+        var navbarMobile = document.querySelector(".navbar-mobile");
+        var hamburgerMenu = document.querySelector(".hamburger-menu");
+
+        if (navbarMobile.style.display === "block") {
+          navbarMobile.classList.toggle("hide");
+          navbarMobile.style.display = "none";
+        } else {
+          navbarMobile.classList.toggle("shown");
+          navbarMobile.style.display = "block";
+        }
+      }
+
+      function closeNavMenu() {
+        var navbarMobile = document.querySelector(".navbar-mobile");
+        navbarMobile.classList.toggle("hide");
+        navbarMobile.style.display = "none";
+      }
     </script>
     <style>
       html {
@@ -58,8 +77,21 @@
           <a href="#over-mij">Over mij</a>
           <a href="#contact">Contact</a>
         </div>
+        <!-- Hamburger Menu -->
+        <div class="hamburger-menu" onclick="toggleMenu()">
+          <div class="bar"></div>
+          <div class="bar"></div>
+          <div class="bar"></div>
+        </div>
       </div>
     </nav>
+    <!-- Navbar mobile -->
+    <div class="navbar-mobile">
+      <a href="#behandelingen" onclick="closeNavMenu()">Behandelingen</a>
+      <a href="#prijslijst" onclick="closeNavMenu()">Prijslijst</a>
+      <a href="#over-mij" onclick="closeNavMenu()">Over mij</a>
+      <a href="#contact" onclick="closeNavMenu()">Contact</a>
+    </div>
 
     <!-- Content secties -->
     <div class="section section-one">
