@@ -35,6 +35,20 @@ body {
   padding: 0; /* Verwijder eventuele padding */
 }
 
+.video-mobile {
+    display: none;
+}
+
+@media screen and (max-width: 768px) {
+    .video-pc {
+        display: none;
+    }
+
+    .video-mobile {
+        display: block;
+    }
+}
+
 .section-one {
   position: relative;
   margin: 0; /* Verwijder ruimte rond de sectie */
