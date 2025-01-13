@@ -155,12 +155,27 @@
   z-index: 1;
 }
 
+.mini-picture-treatment {
+    width: 50%;
+    height: 50%;
+}
+
+.div-mini-image-treatment {
+    justify-content: center;
+    text-align: center;
+}
+
 @media (max-width: 768px) {
-  .content-left {
+    .content-left {
     display: none;
   }
 
   .section-two-container h2 {
     margin-bottom: 10vh !important;
   }
+
+  .mini-picture-treatment {
+    width: 90%;
+    height: 50%;
+}
 }
