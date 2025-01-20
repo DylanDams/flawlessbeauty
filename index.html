@@ -56,6 +56,12 @@
       html {
         scroll-behavior: smooth;
       }
+
+      .soon {
+        width: 100vw;
+        height: 100vh;
+        object-fit: cover;
+      }
     </style>
   </head>
   <body>
@@ -63,8 +69,8 @@
       <img src="img/logozwart.svg" alt="Logo" class="intro-logo" />
     </div>
 
-    <!-- Navbar -->
-    <nav class="navbar">
+    <img src="img/soon-mobile.jpeg" alt="Logo" class="soon" />
+    <!-- <nav class="navbar">
       <div class="container">
         <div class="menu-left">
           <a href="#behandelingen">Behandelingen</a>
@@ -77,7 +83,6 @@
           <a href="#over-mij">Over mij</a>
           <a href="#contact">Contact</a>
         </div>
-        <!-- Hamburger Menu -->
         <div class="hamburger-menu" onclick="toggleMenu()">
           <div class="bar"></div>
           <div class="bar"></div>
@@ -85,7 +90,6 @@
         </div>
       </div>
     </nav>
-    <!-- Navbar mobile -->
     <div class="navbar-mobile">
       <a href="#behandelingen" onclick="closeNavMenu()">Behandelingen</a>
       <a href="#prijslijst" onclick="closeNavMenu()">Prijslijst</a>
@@ -93,7 +97,6 @@
       <a href="#contact" onclick="closeNavMenu()">Contact</a>
     </div>
 
-    <!-- Content secties -->
     <div class="section section-one">
       <video
         autoplay
@@ -165,7 +168,6 @@
         <div class="content-right">
           <h2>Behandelingen</h2>
 
-          <!-- BIAB Section -->
           <div class="treatment-section">
             <h3
               onclick="toggleDescription('biab-description')"
@@ -464,6 +466,6 @@
       data-position="right"
       data-outline="shadow"
     ></div>
-    <script src="https://static-widget.salonized.com/loader.js"></script>
+    <script src="https://static-widget.salonized.com/loader.js"></script> -->
   </body>
 </html>
