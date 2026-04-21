@@ -15,6 +15,8 @@
     <link href="css/section5.css" rel="stylesheet" />
     <link href="css/navbar.css" rel="stylesheet" />
     <link href="css/main.css" rel="stylesheet" />
+    <link href="css/section-gallery.css" rel="stylesheet" />
+    <link href="css/animations.css" rel="stylesheet" />
     <link rel="icon" type="image/png" href="img/thumbnail_flawlessbeauty.png" />
     <script src="js/introloader.js"></script>
     <script src="js/slideshow.js"></script>
@@ -35,7 +37,6 @@
 
       function toggleMenu() {
         var navbarMobile = document.querySelector(".navbar-mobile");
-        var hamburgerMenu = document.querySelector(".hamburger-menu");
 
         if (navbarMobile.style.display === "block") {
           navbarMobile.classList.toggle("hide");
@@ -53,16 +54,21 @@
       }
     </script>
     <style>
-      html {
-        scroll-behavior: smooth;
-      }
+      html { scroll-behavior: smooth; }
     </style>
   </head>
   <body>
+
+    <!-- Custom cursor -->
+    <div class="cursor-dot"></div>
+    <div class="cursor-ring"></div>
+
+    <!-- Intro loader -->
     <div id="intro" class="intro">
       <img src="img/logozwart.svg" alt="Logo" class="intro-logo" />
     </div>
 
+    <!-- Navigation -->
     <nav class="navbar">
       <div class="container">
         <div class="menu-left">
@@ -90,59 +96,64 @@
       <a href="#contact" onclick="closeNavMenu()">Contact</a>
     </div>
 
+    <!-- Hero video -->
     <div class="section section-one">
-      <video
-        autoplay
-        muted
-        loop
-        playsinline
-        preload="auto"
-        class="background-video video-pc"
-      >
+      <video autoplay muted loop playsinline preload="auto" class="background-video video-pc">
         <source src="img/flawlessbeauty.webm" type="video/webm" />
-        Your browser does not support the video tag.
       </video>
-      <video
-        autoplay
-        muted
-        loop
-        playsinline
-        preload="auto"
-        class="background-video video-mobile"
-      >
+      <video autoplay muted loop playsinline preload="auto" class="background-video video-mobile">
         <source src="img/flawlessbeauty-vertical.webm" type="video/webm" />
-        Your browser does not support the video tag.
       </video>
+      <div class="scroll-indicator">
+        <span>Scroll</span>
+        <div class="scroll-indicator-line"></div>
+      </div>
     </div>
 
-    <div class="section section-welcome">
-      <div class="welcome-container">
-        <div class="welcome-text">
-          <h1>Welkom bij Flawless Beauty</h1>
-          <p>Hét adres voor de mooiste nagels!</p>
+    <!-- Prelude – editorial intro strip -->
+    <section class="prelude">
+      <div class="prelude-inner">
+        <div class="prelude-top">
+          <span class="prelude-line" aria-hidden="true"></span>
+          <span class="prelude-eyebrow" data-reveal>— Nagelstudio · Raalte </span>
+          <span class="prelude-line" aria-hidden="true"></span>
+        </div>
+
+        <div class="prelude-strip">
+          <figure class="prelude-tile prelude-tile--1">
+            <img src="img/werksfeer-vijlen.jpeg" alt="Handgemaakte nagels" />
+            <!-- <figcaption>
+              <span class="prelude-num">01</span>
+              <span class="prelude-label">Handgemaakt</span>
+            </figcaption> -->
+          </figure>
+
+          <div class="prelude-word" data-reveal>
+            <span class="prelude-word-top">met</span>
+            <span class="prelude-word-big">aandacht</span>
+            <span class="prelude-word-bot">voor elk detail</span>
+          </div>
+
+          <figure class="prelude-tile prelude-tile--2">
+            <img src="img/werksfeer-celine.jpeg" alt="Celine aan het werk" />
+            <!-- <figcaption>
+              <span class="prelude-num">02</span>
+              <span class="prelude-label">Persoonlijk</span>
+            </figcaption> -->
+          </figure>
+
+          <figure class="prelude-tile prelude-tile--3">
+            <img src="img/product-myway-1.jpeg" alt="MY WAY producten" />
+            <!-- <figcaption>
+              <span class="prelude-num">03</span>
+              <span class="prelude-label">Kwaliteit</span>
+            </figcaption>
+          </figure> -->
         </div>
       </div>
-      <svg
-        viewBox="0 0 3840 96"
-        preserveAspectRatio="none"
-        style="margin-top: -0.5px"
-      >
-        <g id="Page-1">
-          <g id="Artboard-Copy-3" transform="translate(0.000000, -2328.000000)">
-            <g
-              id="style-element/wave/wave-D"
-              transform="translate(0.000000, 2328.000000)"
-            >
-              <path
-                d="M3840,96 L0,96 L0,56.8695652 C226.666667,18.9565217 546.666667,0 960,0 C1156.94118,0 1356.90934,9.68636678 1558.94298,22.9054085 L1584.20788,24.5757429 L1609.49387,26.2802052 L1634.80054,28.0161244 L1660.12748,29.7808296 L1685.47426,31.5716501 L1710.84047,33.3859149 L1736.22569,35.2209532 L1761.62951,37.074094 L1812.49125,40.824 L1850.96631,43.685184 L1960.36264,51.8498416 L1999.5204,54.7540967 L2025.64431,56.6784755 L2051.78267,58.5900992 L2077.93505,60.4861199 L2104.101,62.36369 L2136.82685,64.6803682 L2136.82685,64.6803682 L2169.57233,66.958206 L2195.78228,68.7487736 L2221.03243,70.4435074 C2439.91236,84.9982223 2659.95618,96 2880,96 C2897.33333,96 2914.48533,95.9744 2931.456,95.9232 L2956.776,95.8272 C3351.32533,94.0224 3645.73333,78.08 3840,48 L3840,96 Z"
-                fill="#faf8f6"
-              ></path>
-            </g>
-          </g>
-        </g>
-      </svg>
-    </div>
+    </section>
 
+    <!-- Behandelingen -->
     <div id="behandelingen" class="section section-two">
       <div class="section-two-container">
         <div class="content-left">
@@ -160,13 +171,10 @@
         </div>
 
         <div class="content-right">
-          <h2>Behandelingen</h2>
+          <h2 data-reveal>Behandelingen</h2>
 
-          <div class="treatment-section">
-            <h3
-              onclick="toggleDescription('biab-description')"
-              class="treatment-title"
-            >
+          <div class="treatment-section" data-reveal data-delay="1">
+            <h3 onclick="toggleDescription('biab-description')" class="treatment-title">
               BIAB (Natural Nail Treatment)
             </h3>
             <p id="biab-description" class="treatment-description">
@@ -180,7 +188,7 @@
               doormiddel van een manicure. Deze behandeling is ZONDER gelpolish
               en er wordt gewerkt op de lengte van de natuurlijke nagel.<br /><br />
               <img src="img/nagels3.jpeg" class="mini-picture-treatment" />
-            <br>
+              <br>
               <strong>BIAB treatment & manicure + gelpolish</strong><br />
               De natuurlijke nagels worden verstevigd met een gel product.
               <br />Op de afspraak bekijk ik of ik ga werken met een soft gel
@@ -191,25 +199,17 @@
             </p>
           </div>
 
-          <div class="treatment-section">
-            <h3
-              onclick="toggleDescription('nailextensions-description')"
-              class="treatment-title"
-            >
+          <div class="treatment-section" data-reveal data-delay="2">
+            <h3 onclick="toggleDescription('nailextensions-description')" class="treatment-title">
               NAILEXTENSIONS
             </h3>
-            <p
-              id="nailextensions-description"
-              class="treatment-description"
-              style="display: none"
-            >
-            <img src="img/nagels2.jpeg" class="mini-picture-treatment" />
-            <br>
+            <p id="nailextensions-description" class="treatment-description" style="display: none">
+              <img src="img/nagels2.jpeg" class="mini-picture-treatment" />
+              <br>
               <strong>Nail extensions & manicure</strong><br />
               De natuurlijke nagels worden verlengd met gel, op de afspraak kijk
               ik of ik met sjablonen ga werken of upperforms, afhankelijk van de
               natuurlijke nagel. Deze behandeling is ZONDER gelpolish.<br /><br />
-
               <strong>Nail extensions & manicure + gelpolish</strong><br />
               De natuurlijke nagels worden verlengd met gel, op de afspraak kijk
               ik of ik met sjablonen ga werken of upperforms, afhankelijk van de
@@ -217,18 +217,11 @@
             </p>
           </div>
 
-          <div class="treatment-section">
-            <h3
-              onclick="toggleDescription('gelpolish-description')"
-              class="treatment-title"
-            >
+          <div class="treatment-section" data-reveal data-delay="3">
+            <h3 onclick="toggleDescription('gelpolish-description')" class="treatment-title">
               GELPOLISH
             </h3>
-            <p
-              id="gelpolish-description"
-              class="treatment-description"
-              style="display: none"
-            >
+            <p id="gelpolish-description" class="treatment-description" style="display: none">
               <strong>Gelpolish & manicure</strong><br />
               De natuurlijke nagels worden behandeld met een gelpolish en de
               nagelriemen met een manicure. Dit blijft gemiddeld 2-3 weken
@@ -237,19 +230,12 @@
             </p>
           </div>
 
-          <div class="treatment-section">
-            <h3
-              onclick="toggleDescription('nailart-description')"
-              class="treatment-title"
-            >
+          <div class="treatment-section" data-reveal data-delay="4">
+            <h3 onclick="toggleDescription('nailart-description')" class="treatment-title">
               NAILART
             </h3>
-            <p
-              id="nailart-description"
-              class="treatment-description"
-              style="display: none"
-            >
-            <img src="img/nagels10.jpeg" class="mini-picture-treatment" />
+            <p id="nailart-description" class="treatment-description" style="display: none">
+              <img src="img/nagels10.jpeg" class="mini-picture-treatment" />
               <img src="img/nagels1.jpeg" class="mini-picture-treatment" />
               <br />
               Deze behandeling kunt u boeken als extra bij een BIAB,
@@ -258,26 +244,17 @@
             </p>
           </div>
 
-          <div class="treatment-section">
-            <h3
-              onclick="toggleDescription('setverwijderen-description')"
-              class="treatment-title"
-            >
+          <div class="treatment-section" data-reveal data-delay="5">
+            <h3 onclick="toggleDescription('setverwijderen-description')" class="treatment-title">
               SET VERWIJDEREN
             </h3>
-            <p
-              id="setverwijderen-description"
-              class="treatment-description"
-              style="display: none"
-            >
+            <p id="setverwijderen-description" class="treatment-description" style="display: none">
               <strong>BIAB verwijderen</strong><br />
               Hierbij wordt de BIAB op een professionele manier van de nagels
               verwijderd.<br /><br />
-
               <strong>Nailextensions verwijderen</strong><br />
               Hierbij worden de Nailextensions op een professionele manier van
               de nagels verwijderd.<br /><br />
-
               <strong>Gellak verwijderen</strong><br />
               Hierbij wordt de gellak op een professionele manier van de nagels
               verwijderd.
@@ -287,83 +264,46 @@
       </div>
     </div>
 
+    <!-- Prijslijst -->
     <div id="prijslijst" class="section section-three">
       <div class="prijslijst-container">
         <div class="prijslijst-left">
-          <h2>Prijslijst</h2>
+          <h2 data-reveal="fade">Prijslijst</h2>
         </div>
 
-        <div class="prijslijst-right">
+        <div class="prijslijst-right" data-reveal data-delay="2">
           <ul class="price-list">
-            <li>
-              <span class="treatment">BIAB treatment & manicure</span
-              ><span class="price">€40,-</span>
-            </li>
-            <li>
-              <span class="treatment"
-                >BIAB treatment & manicure + gelpolish</span
-              ><span class="price">€45,-</span>
-            </li>
-            <li>
-              <span class="treatment"
-                >Vormcorrectie</span
-              ><span class="price">€55,-</span>
-            </li>
-            <li>
-              <span class="treatment"
-                >Vormcorrectie + gelpolish</span
-              ><span class="price">€57,50</span>
-            </li>
-            <li>
-              <span class="treatment">Nailextensions & manicure</span
-              ><span class="price">€60,-</span>
-            </li>
-            <li>
-              <span class="treatment"
-                >Nailextensions & manicure + gelpolish</span
-              ><span class="price">€65,-</span>
-            </li>
-            <li>
-              <span class="treatment">Gelpolish & Russian manicure</span
-              ><span class="price">€30,-</span>
-            </li>
-            <li>
-              <span class="treatment">Nailart (babyboom, french manicure, chrome etc.)</span
-              ><span class="price">€5,-</span>
-            </li>
-            <li>
-              <span class="treatment">Correctie eigen nagel</span
-              ><span class="price">€2,50</span>
-            </li>
-            <li>
-              <span class="treatment">BIAB verwijderen</span
-              ><span class="price">€10,-</span>
-            </li>
-            <li>
-              <span class="treatment">Nailextensions verwijderen</span
-              ><span class="price">€15,-</span>
-            </li>
-            <li>
-              <span class="treatment">Gellak verwijderen</span
-              ><span class="price">€7,50</span>
-            </li>
+            <li><span class="treatment">BIAB treatment & manicure</span><span class="price">€40,-</span></li>
+            <li><span class="treatment">BIAB treatment & manicure + gelpolish</span><span class="price">€45,-</span></li>
+            <li><span class="treatment">Vormcorrectie</span><span class="price">€55,-</span></li>
+            <li><span class="treatment">Vormcorrectie + gelpolish</span><span class="price">€57,50</span></li>
+            <li><span class="treatment">Nailextensions & manicure</span><span class="price">€60,-</span></li>
+            <li><span class="treatment">Nailextensions & manicure + gelpolish</span><span class="price">€65,-</span></li>
+            <li><span class="treatment">Gelpolish & Russian manicure</span><span class="price">€30,-</span></li>
+            <li><span class="treatment">Nailart (babyboom, french manicure, chrome etc.)</span><span class="price">€5,-</span></li>
+            <li><span class="treatment">Correctie eigen nagel</span><span class="price">€2,50</span></li>
+            <li><span class="treatment">BIAB verwijderen</span><span class="price">€10,-</span></li>
+            <li><span class="treatment">Nailextensions verwijderen</span><span class="price">€15,-</span></li>
+            <li><span class="treatment">Gellak verwijderen</span><span class="price">€7,50</span></li>
           </ul>
         </div>
       </div>
     </div>
 
+    <!-- Marquee text strip -->
+    <div class="marquee-strip" aria-hidden="true">
+      <div class="marquee-strip-track">
+        <div class="marquee-strip-item">Flawless Beauty <span class="marquee-strip-dot">✦</span> Nagelstudio Raalte <span class="marquee-strip-dot">✦</span> MY WAY <span class="marquee-strip-dot">✦</span> BIAB <span class="marquee-strip-dot">✦</span> Nailextensions <span class="marquee-strip-dot">✦</span> Gelpolish <span class="marquee-strip-dot">✦</span> Kwaliteit voorop <span class="marquee-strip-dot">✦</span></div>
+        <div class="marquee-strip-item">Flawless Beauty <span class="marquee-strip-dot">✦</span> Nagelstudio Raalte <span class="marquee-strip-dot">✦</span> MY WAY <span class="marquee-strip-dot">✦</span> BIAB <span class="marquee-strip-dot">✦</span> Nailextensions <span class="marquee-strip-dot">✦</span> Gelpolish <span class="marquee-strip-dot">✦</span> Kwaliteit voorop <span class="marquee-strip-dot">✦</span></div>
+      </div>
+    </div>
+
+    <!-- Over mij -->
     <div id="over-mij" class="section section-four">
-      <svg
-        viewBox="0 0 3840 96"
-        preserveAspectRatio="none"
-        style="transform: rotate(180deg); margin-top: -0.5px"
-      >
+      <svg viewBox="0 0 3840 96" preserveAspectRatio="none" style="transform: rotate(180deg); margin-top: -0.5px">
         <g id="Page-1">
           <g id="Artboard-Copy-3" transform="translate(0.000000, -2328.000000)">
-            <g
-              id="style-element/wave/wave-D"
-              transform="translate(0.000000, 2328.000000)"
-            >
+            <g id="style-element/wave/wave-D" transform="translate(0.000000, 2328.000000)">
               <path
                 d="M3840,96 L0,96 L0,56.8695652 C226.666667,18.9565217 546.666667,0 960,0 C1156.94118,0 1356.90934,9.68636678 1558.94298,22.9054085 L1584.20788,24.5757429 L1609.49387,26.2802052 L1634.80054,28.0161244 L1660.12748,29.7808296 L1685.47426,31.5716501 L1710.84047,33.3859149 L1736.22569,35.2209532 L1761.62951,37.074094 L1812.49125,40.824 L1850.96631,43.685184 L1960.36264,51.8498416 L1999.5204,54.7540967 L2025.64431,56.6784755 L2051.78267,58.5900992 L2077.93505,60.4861199 L2104.101,62.36369 L2136.82685,64.6803682 L2136.82685,64.6803682 L2169.57233,66.958206 L2195.78228,68.7487736 L2221.03243,70.4435074 C2439.91236,84.9982223 2659.95618,96 2880,96 C2897.33333,96 2914.48533,95.9744 2931.456,95.9232 L2956.776,95.8272 C3351.32533,94.0224 3645.73333,78.08 3840,48 L3840,96 Z"
                 fill="#484036"
@@ -373,86 +313,177 @@
         </g>
       </svg>
       <div class="section-four-container">
-        <div class="content-left">
+        <div class="content-left" data-reveal="left">
           <h2>Over mij</h2>
           <p>
             Mijn naam is Celine Dams, en ik ben het gezicht achter Flawless Beauty.
-            <br />
-            <br />
+            <br /><br />
             Om mijn klanten de hoogste kwaliteit te kunnen bieden, heb ik de opleiding tot nagelstyliste succesvol afgerond. Daarnaast heb ik mij verder gespecialiseerd met een training in Natural Nail Treatment (BIAB), Upper Forms en diverse privétrainingen om mijn technieken te blijven verfijnen en ontwikkelen.
-            <br />
-            <br />
+            <br /><br />
             Door continu te investeren in mijn kennis en vaardigheden kan ik behandelingen aanbieden die niet alleen mooi zijn, maar ook zorgvuldig en professioneel worden uitgevoerd.
-Ik werk uitsluitend met hoogwaardige producten, waaronder My Way, omdat kwaliteit voor mij voorop staat.
+            Ik werk uitsluitend met hoogwaardige producten, waaronder My Way, omdat kwaliteit voor mij voorop staat.
+          </p>
           <a href="#contact" class="contact-button">Neem contact op</a>
         </div>
-        <div class="content-right">
-          <img src="img/me.jpeg" alt="Celine Dams" class="me-image" />
+        <div class="content-right" data-reveal="right">
+          <img src="img/celine-portrait.jpeg" alt="Celine Dams" class="me-image" />
         </div>
       </div>
     </div>
 
-    <script src="https://cdn.salonized.com/widget.js" data-name="salonized" data-microsite-url="https://flawless-beauty.salonized.com"></script><div class="salonized-reviews"></div>
+    <!-- Studio – editorial split feature -->
+    <section id="galerij" class="studio-feature">
+      <div class="studio-feature-inner">
+
+        <div class="studio-intro" data-reveal>
+          <span class="studio-eyebrow">— Flawless Beauty</span>
+          <h2 class="studio-heading">
+            Welkom in<br/>
+            <em>mijn</em> salon
+          </h2>
+          <p class="studio-lede">
+            Mijn salon zit in Raalte, een rustige plek waar het draait om meer dan nagels: persoonlijke aandacht, precisie en topkwaliteit. Ik investeer ieder jaar in diverse trainingen waardoor ik mijn klanten de beste kwaliteit kan bieden.
+          </p>
+        </div>
+
+        <div class="studio-mosaic">
+          <figure class="studio-tile studio-tile--hero">
+            <img src="img/werksfeer-celine.jpeg" alt="Celine aan het werk" data-parallax="0.12" />
+            <figcaption>Aan het werk</figcaption>
+          </figure>
+
+          <figure class="studio-tile studio-tile--tall">
+            <img src="img/studio-bank.jpeg" alt="Studio interieur" />
+            <figcaption>Warme ontvangst</figcaption>
+          </figure>
+
+          <figure class="studio-tile studio-tile--wide">
+            <img src="img/werksfeer-vijlen.jpeg" alt="Nagels vijlen" />
+            <figcaption>Afwerking</figcaption>
+          </figure>
+
+          <div class="studio-quote">
+            <span class="studio-quote-mark">“</span>
+            <p>Wat ik het mooiste vind aan mijn werk, is het moment waarop iemand weer blij en zelfverzekerd de deur uitgaat.</p>
+            <span class="studio-quote-author">— Celine</span>
+          </div>
+
+          <figure class="studio-tile studio-tile--square">
+            <img src="img/werksfeer-kleuren.jpeg" alt="Kleur kiezen" />
+            <figcaption>Kleurkeuze</figcaption>
+          </figure>
+
+          <figure class="studio-tile studio-tile--square">
+            <img src="img/werksfeer-gel.jpeg" alt="Gel aanbrengen" />
+            <figcaption>Verzorging</figcaption>
+          </figure>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- Products – MY WAY showcase -->
+    <section id="producten" class="products-feature">
+      <div class="products-feature-inner">
+
+        <div class="products-copy" data-reveal="left">
+          <span class="products-eyebrow">— De producten</span>
+          <h2 class="products-heading">MY WAY<br/></h2>
+          <p class="products-lede">
+            Ik werk met MY WAY, een merk dat staat voor kwaliteit, innovatie en perfectie. Als ambassadeur kies ik bewust voor deze producten, omdat ze passen bij mijn hoge standaard. Zo kan ik jou sterke, verzorgde nagels bieden die lang mooi blijven.
+          </p>
+          <ul class="products-usp">
+            <li><span>01</span> Kwaliteit</li>
+            <li><span>02</span> Perfectie</li>
+            <li><span>03</span> Professionaliteit </li>
+          </ul>
+        </div>
+
+        <div class="products-grid">
+          <figure class="product-card product-card--accent">
+            <img src="img/product-myway-1.jpeg" alt="MY WAY gelpolish" />
+            <figcaption><span class="product-tag">MY WAY</span><span class="product-name">Gelpolish</span></figcaption>
+          </figure>
+          <figure class="product-card">
+            <img src="img/product-myway-2.jpeg" alt="MY WAY collectie" />
+            <figcaption><span class="product-tag">MY WAY</span><span class="product-name">3 - 1 Hardgel</span></figcaption>
+          </figure>
+          <figure class="product-card">
+            <img src="img/product-myway-4.jpeg" alt="MY WAY palette" />
+            <figcaption><span class="product-tag">MY WAY</span><span class="product-name">Essentials</span></figcaption>
+          </figure>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- Giftcard -->
+    <section id="giftcard" class="giftcard-feature">
+      <div class="giftcard-inner">
+        <div class="giftcard-media">
+          <img src="img/studio-giftcard.jpeg" alt="Flawless Beauty giftcard" data-parallax="0.10" />
+          <span class="giftcard-badge">Giftcard</span>
+        </div>
+        <div class="giftcard-copy">
+          <span class="giftcard-eyebrow">— Cadeau geven</span>
+          <h2 class="giftcard-heading">
+            Op zoek naar een leuk <br/>
+            <em>cadeau?</em>
+          </h2>
+          <p class="giftcard-lede">
+            Met een giftcard van Flawless Beauty geef je een verwenmoment naar keuze. Perfect voor elke gelegenheid!
+          </p>
+          <ul class="giftcard-list">
+            <li>Zelf kiezen welk bedrag</li>
+            <li>Leuk verpakt</li>
+            <li>Af te halen of verzonden</li>
+          </ul>
+          <a href="mailto:flawlessbeauty@kpnmail.nl?subject=Giftcard%20bestellen" class="giftcard-cta">
+            Neem hier contact op
+            <span aria-hidden="true">→</span>
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <script src="https://cdn.salonized.com/widget.js" data-name="salonized" data-microsite-url="https://flawless-beauty.salonized.com"></script>
+    <div class="salonized-reviews"></div>
 
     <footer id="contact" class="footer">
       <div class="footer-container">
-        <div class="footer-left">
+        <div class="footer-left" data-reveal data-delay="1">
           <h3>Contact</h3>
           <p>
-            <a
-              class="instagram-icon"
-              href="mailto:flawlessbeauty@kpnmail.nl"
-              target="_blank"
-            >
+            <a class="instagram-icon" href="mailto:flawlessbeauty@kpnmail.nl" target="_blank">
               <img src="img/mail.svg" alt="Mail" class="social-icon" />
             </a>
             Email: flawlessbeauty@kpnmail.nl
           </p>
           <p>
-            <a
-              class="instagram-icon"
-              href="https://wa.me/31683524241"
-              target="_blank"
-            >
+            <a class="instagram-icon" href="https://wa.me/31683524241" target="_blank">
               <img src="img/whatsapp.svg" alt="Whatsapp" class="social-icon" />
             </a>
             Telefoon: 06 83524241
           </p>
           <p>
-            <a
-              class="instagram-icon"
-              href="https://g.co/kgs/ufyRsAV"
-              target="_blank"
-            >
+            <a class="instagram-icon" href="https://g.co/kgs/ufyRsAV" target="_blank">
               <img src="img/pin.svg" alt="Pin" class="social-icon" />
             </a>
             Adres: Warmelo 5, 8103HT, Raalte
           </p>
         </div>
-        <div class="footer-center">
+        <div class="footer-center" data-reveal data-delay="2">
           <h3>Sociale media</h3>
           <div class="social-media">
-            <a
-              class="instagram-icon"
-              href="https://www.instagram.com/flawlessbeauty.nl"
-              target="_blank"
-            >
-              <img
-                src="img/instagram.svg"
-                alt="Instagram"
-                class="social-icon"
-              />
+            <a class="instagram-icon" href="https://www.instagram.com/flawlessbeauty.nl" target="_blank">
+              <img src="img/instagram.svg" alt="Instagram" class="social-icon" />
             </a>
-            <a
-              class="instagram-icon"
-              href="https://www.facebook.com/profile.php?id=61564057466537&locale=nl_NL"
-              target="_blank"
-            >
+            <a class="instagram-icon" href="https://www.facebook.com/profile.php?id=61564057466537&locale=nl_NL" target="_blank">
               <img src="img/facebook.svg" alt="facebook" class="social-icon" />
             </a>
           </div>
         </div>
-        <div class="footer-right">
+        <div class="footer-right" data-reveal data-delay="3">
           <h3>Openingstijden</h3>
           <p><span>Maandag:</span><span class="time">09:00 - 21:00</span></p>
           <p><span>Dinsdag:</span><span class="time">09:00 - 21:00</span></p>
@@ -477,5 +508,6 @@ Ik werk uitsluitend met hoogwaardige producten, waaronder My Way, omdat kwalitei
       data-outline="shadow"
     ></div>
     <script src="https://static-widget.salonized.com/loader.js"></script>
+    <script src="js/animations.js"></script>
   </body>
 </html>
