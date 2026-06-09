@@ -1,0 +1,76 @@
+:root {
+  /* Typography */
+  --font-display: "Cormorant Garamond", Georgia, "Times New Roman", serif;
+  --font-body: "Work Sans", -apple-system, BlinkMacSystemFont, "Segoe UI",
+    sans-serif;
+  --font-script: "Sacramento", "Segoe Script", cursive;
+
+  /* Warm brand palette */
+  --espresso: #2d2a24;
+  --brown: #484036;
+  --taupe: #a08a6b;
+  --gold: #c9b48a;
+  --sand: #dfd9cd;
+  --cream: #f4ecd9;
+  --porcelain: #faf8f6;
+
+  --ease-lux: cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  text-rendering: optimizeLegibility;
+}
+
+/* Distinctive serif display font for headings (restores the intended look) */
+.section h2,
+.prijslijst-left,
+.studio-heading,
+.products-heading,
+.giftcard-heading,
+.prelude-word-big,
+.footer h3 {
+  font-family: var(--font-display);
+}
+
+/* Script accent for personal, hand-signed moments */
+.signature {
+  font-family: var(--font-script);
+  font-weight: 400;
+  font-size: 1.5em;
+  color: var(--taupe);
+  line-height: 1;
+}
+
+.about-signature {
+  display: block;
+  font-size: clamp(36px, 4.5vw, 50px);
+  margin: 4px 0 0;
+}
+
+/* On-brand, visible focus ring for keyboard users */
+a:focus-visible,
+button:focus-visible {
+  outline: 2px solid var(--taupe);
+  outline-offset: 3px;
+  border-radius: 3px;
+}
+
+/* Visually hidden, but available to screen readers & search engines */
+.visually-hidden {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  margin: -1px;
+  padding: 0;
+  border: 0;
+  clip: rect(0 0 0 0);
+  clip-path: inset(50%);
+  overflow: hidden;
+  white-space: nowrap;
+}

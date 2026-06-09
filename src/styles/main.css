@@ -1,6 +1,6 @@
 body {
   margin: 0;
-  font-family: "dream-avenue";
+  font-family: var(--font-body);
   overflow-x: hidden;
   scroll-behavior: smooth !important;
 }

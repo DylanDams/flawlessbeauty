@@ -15,10 +15,10 @@
 
 .prijslijst-left {
   font-weight: 600;
-  color: #dfdfdf;
+  color: #f4ecd9;
   margin-bottom: 50px;
-  letter-spacing: 2px;
-  font-family: "dream-avenue";
+  letter-spacing: 0.01em;
+  font-family: var(--font-display);
 }
 
 .price-list {
@@ -31,11 +31,20 @@
 }
 
 .price-list li {
-  margin: 15px 0;
-  font-weight: 500;
-  padding-bottom: 10px;
+  margin: 14px 0;
+  font-weight: 400;
+  padding-bottom: 14px;
   display: flex;
   justify-content: space-between;
+  align-items: baseline;
+  gap: 18px;
+  border-bottom: 1px solid rgba(223, 217, 205, 0.16);
+}
+
+.price-list li .price {
+  font-variant-numeric: tabular-nums;
+  color: #c9b48a;
+  white-space: nowrap;
 }
 
 .price-list li span {

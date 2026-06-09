@@ -120,6 +120,35 @@
 [data-delay="12"] { transition-delay: 0.96s; }
 
 /* ============================================================
+   Reduced motion — honor the user's OS preference (accessibility)
+   ============================================================ */
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.001ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.001ms !important;
+  }
+
+  /* Make reveal content visible immediately instead of animating in */
+  [data-reveal],
+  [data-reveal="clip"],
+  [data-reveal="wipe"] {
+    opacity: 1 !important;
+    transform: none !important;
+    filter: none !important;
+    clip-path: none !important;
+  }
+
+  .cursor-dot,
+  .cursor-ring { display: none !important; }
+  .scroll-indicator-line::after { animation: none !important; }
+}
+
+/* ============================================================
    Scroll Indicator (hero)
    ============================================================ */
 .scroll-indicator {

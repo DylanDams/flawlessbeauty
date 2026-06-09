@@ -761,7 +761,8 @@
   letter-spacing: 3px;
   text-transform: uppercase;
   border-radius: 999px;
-  transition: background 0.3s ease, transform 0.3s ease, gap 0.3s ease;
+  transition: background 0.3s ease, transform 0.3s ease, gap 0.3s ease,
+    box-shadow 0.3s ease;
 }
 
 .giftcard-cta span {
@@ -771,6 +772,8 @@
 .giftcard-cta:hover {
   background: #2d2820;
   gap: 14px;
+  transform: translateY(-2px);
+  box-shadow: 0 12px 28px rgba(45, 40, 32, 0.28);
 }
 
 .giftcard-cta:hover span { transform: translateX(4px); }

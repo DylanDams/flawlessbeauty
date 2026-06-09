@@ -46,19 +46,24 @@
   display: inline-block;
   background-color: transparent;
   color: #484036;
-  border: 2px solid #484036;
-  padding: 10px 50px;
-  font-size: 16px;
+  border: 1.5px solid #484036;
+  padding: 15px 42px;
+  font-size: 12px;
+  letter-spacing: 3px;
+  text-transform: uppercase;
   text-decoration: none;
-  border-radius: 25px;
-  margin-top: 20px;
-  transition: all 0.3s ease;
+  border-radius: 999px;
+  margin-top: 28px;
+  transition: background-color 0.45s var(--ease-lux),
+    color 0.45s var(--ease-lux), transform 0.45s var(--ease-lux),
+    box-shadow 0.45s var(--ease-lux);
 }
 
 .contact-button:hover {
   background-color: #484036;
-  color: #dfd9cd;
-  border-color: #3d2f28;
+  color: #f4ecd9;
+  transform: translateY(-2px);
+  box-shadow: 0 12px 28px rgba(72, 64, 54, 0.22);
 }
 
 @media screen and (max-width: 768px) {
