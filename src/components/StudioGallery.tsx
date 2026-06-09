@@ -1,6 +1,7 @@
 "use client";
 
 import Reveal from "@/components/motion/Reveal";
+import SharpImage from "@/components/SharpImage";
 
 const GALLERY = [
   { src: "/img/werksfeer-celine.jpeg", alt: "Celine aan het werk", caption: "Aan het werk", wide: true },
@@ -35,7 +36,11 @@ export default function StudioGallery() {
               key={item.src}
               className={`fb-studio__card${item.wide ? " fb-studio__card--wide" : ""}`}
             >
-              <img src={item.src} alt={item.alt} loading="lazy" />
+              <SharpImage
+                src={item.src}
+                alt={item.alt}
+                sizes={item.wide ? "(max-width: 900px) 85vw, 480px" : "(max-width: 900px) 78vw, 340px"}
+              />
               <figcaption>{item.caption}</figcaption>
             </figure>
           ))}

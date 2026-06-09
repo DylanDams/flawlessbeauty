@@ -329,7 +329,7 @@ a {
 .fb-hero__actions {
   display: flex;
   flex-wrap: wrap;
-  gap: 1rem;
+  gap: clamp(1.25rem, 2.4vw, 2rem);
 }
 
 .fb-hero__scroll {
@@ -407,6 +407,7 @@ a {
 }
 
 .fb-intro__img {
+  position: relative;
   border-radius: 999px 999px 6px 6px;
   overflow: hidden;
   aspect-ratio: 3/4;
@@ -865,12 +866,14 @@ a {
 
 .fb-about__portrait {
   position: relative;
+  width: 100%;
+  max-width: 480px;
+  aspect-ratio: 4/5;
 }
 
 .fb-about__portrait img {
   width: 100%;
-  max-width: 480px;
-  aspect-ratio: 4/5;
+  height: 100%;
   object-fit: cover;
   border-radius: 4px;
   box-shadow: var(--shadow-lift);
@@ -1122,6 +1125,120 @@ a {
   top: 0.65rem;
 }
 
+.fb-giftcard-shop {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  margin-top: 0.25rem;
+}
+
+.fb-giftcard-shop__amounts {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.55rem;
+}
+
+.fb-giftcard-shop__amounts button,
+.fb-giftcard-shop input,
+.fb-giftcard-shop textarea {
+  font: inherit;
+}
+
+.fb-giftcard-shop__amounts button {
+  border: 1px solid rgba(223, 217, 205, 0.25);
+  border-radius: 999px;
+  background: rgba(255, 255, 255, 0.05);
+  color: var(--color-cream);
+  padding: 0.65rem 0.95rem;
+  cursor: pointer;
+  transition:
+    background 0.3s var(--ease-luxury),
+    border-color 0.3s var(--ease-luxury),
+    transform 0.3s var(--ease-luxury);
+}
+
+.fb-giftcard-shop__amounts button:hover,
+.fb-giftcard-shop__amounts button.is-active {
+  background: var(--color-cream);
+  border-color: var(--color-cream);
+  color: var(--color-espresso);
+}
+
+.fb-giftcard-shop__field {
+  display: flex;
+  flex-direction: column;
+  gap: 0.4rem;
+  color: rgba(223, 217, 205, 0.72);
+  font-size: 0.78rem;
+  letter-spacing: 0.06em;
+}
+
+.fb-giftcard-shop__field span {
+  text-transform: uppercase;
+  font-size: 0.65rem;
+  letter-spacing: 0.16em;
+}
+
+.fb-giftcard-shop input,
+.fb-giftcard-shop textarea {
+  width: 100%;
+  border: 1px solid rgba(223, 217, 205, 0.2);
+  border-radius: 8px;
+  background: rgba(255, 255, 255, 0.06);
+  color: var(--color-cream);
+  padding: 0.85rem 0.95rem;
+  outline: none;
+  transition: border-color 0.3s, background 0.3s;
+}
+
+.fb-giftcard-shop textarea {
+  resize: vertical;
+}
+
+.fb-giftcard-shop input::placeholder,
+.fb-giftcard-shop textarea::placeholder {
+  color: rgba(223, 217, 205, 0.35);
+}
+
+.fb-giftcard-shop input:focus,
+.fb-giftcard-shop textarea:focus {
+  background: rgba(255, 255, 255, 0.09);
+  border-color: rgba(223, 217, 205, 0.55);
+}
+
+.fb-giftcard-shop__grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 0.85rem;
+}
+
+.fb-giftcard-shop__footer {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+  margin-top: 0.35rem;
+}
+
+.fb-giftcard-shop__footer p {
+  margin: 0;
+  color: rgba(223, 217, 205, 0.7);
+}
+
+.fb-giftcard-shop__footer strong {
+  font-family: var(--font-display);
+  font-size: 1.4rem;
+  color: var(--color-cream);
+  font-weight: 500;
+}
+
+.fb-giftcard-shop__error {
+  margin: 0;
+  color: #f4c7bd;
+  font-size: 0.88rem;
+  line-height: 1.5;
+}
+
 /* ---- Footer ---- */
 .fb-footer {
   background: #2e2820;
@@ -1189,23 +1306,146 @@ a {
   opacity: 0.45;
 }
 
-/* ---- Cursor (refined) ---- */
-.cursor-dot {
-  width: 5px;
-  height: 5px;
-  background: var(--color-gold);
+/* ---- Shop status & admin ---- */
+.fb-shop-status,
+.fb-admin {
+  min-height: 100svh;
+  padding: clamp(4rem, 9vw, 7rem) 1.25rem;
+  display: grid;
+  place-items: center;
+  background:
+    radial-gradient(circle at 15% 10%, rgba(184, 149, 106, 0.18), transparent 32rem),
+    linear-gradient(180deg, var(--color-cream-light), var(--color-ivory));
 }
 
-.cursor-ring {
-  width: 36px;
-  height: 36px;
-  border-color: rgba(184, 149, 106, 0.45);
+.fb-shop-status__card,
+.fb-admin__panel {
+  width: min(920px, 100%);
+  padding: clamp(2rem, 5vw, 4rem);
+  background: rgba(255, 255, 255, 0.86);
+  border: 1px solid rgba(184, 149, 106, 0.18);
+  border-radius: 18px;
+  box-shadow: var(--shadow-soft);
 }
 
-.cursor-ring.is-hovering {
-  width: 56px;
-  height: 56px;
-  border-color: rgba(184, 149, 106, 0.85);
+.fb-shop-status__card {
+  width: min(720px, 100%);
+  text-align: center;
+}
+
+.fb-shop-status__card .fb-lede {
+  margin-inline: auto;
+}
+
+.fb-shop-status__order {
+  margin: 1.5rem 0;
+  font-size: 0.78rem;
+  letter-spacing: 0.12em;
+  color: rgba(72, 64, 54, 0.55);
+  word-break: break-word;
+}
+
+.fb-admin__search {
+  display: grid;
+  grid-template-columns: 0.9fr 1.3fr auto;
+  gap: 1rem;
+  margin: 2rem 0;
+  align-items: end;
+}
+
+.fb-admin label,
+.fb-admin-card__redeem label {
+  display: flex;
+  flex-direction: column;
+  gap: 0.4rem;
+}
+
+.fb-admin label span,
+.fb-admin-card__redeem label span {
+  font-size: 0.65rem;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: rgba(72, 64, 54, 0.58);
+}
+
+.fb-admin input {
+  border: 1px solid rgba(72, 64, 54, 0.14);
+  border-radius: 8px;
+  background: #fff;
+  color: var(--color-espresso);
+  font: inherit;
+  padding: 0.85rem 0.95rem;
+}
+
+.fb-admin__message {
+  margin: 0 0 1.25rem;
+  font-size: 0.9rem;
+}
+
+.fb-admin__message--error {
+  color: #9d3328;
+}
+
+.fb-admin__message--success {
+  color: rgba(72, 64, 54, 0.7);
+}
+
+.fb-admin__results {
+  display: grid;
+  gap: 1rem;
+}
+
+.fb-admin-card {
+  padding: 1.5rem;
+  border-radius: 12px;
+  background: var(--color-cream-light);
+  border: 1px solid rgba(184, 149, 106, 0.18);
+}
+
+.fb-admin-card__label {
+  display: block;
+  margin-bottom: 0.35rem;
+  font-size: 0.65rem;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: rgba(72, 64, 54, 0.5);
+}
+
+.fb-admin-card h2 {
+  margin: 0 0 1rem;
+  font-family: var(--font-display);
+  font-size: 2rem;
+  font-weight: 500;
+}
+
+.fb-admin-card dl {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1rem;
+  margin: 0 0 1.25rem;
+}
+
+.fb-admin-card dt {
+  font-size: 0.65rem;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: rgba(72, 64, 54, 0.5);
+  margin-bottom: 0.25rem;
+}
+
+.fb-admin-card dd {
+  margin: 0;
+  font-size: 0.92rem;
+  line-height: 1.5;
+}
+
+.fb-admin-card__redeem {
+  display: grid;
+  grid-template-columns: 0.6fr 1fr auto;
+  gap: 1rem;
+  align-items: end;
+  padding-top: 1rem;
+  border-top: 1px solid rgba(72, 64, 54, 0.1);
 }
 
 /* ---- Scroll progress ---- */

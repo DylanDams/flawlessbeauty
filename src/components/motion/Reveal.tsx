@@ -24,7 +24,7 @@ function buildVariants(isMobile: boolean): Record<RevealVariant, Variants> {
   return {
     up: {
       hidden: { opacity: 0, y: shift, filter: `blur(${blur}px)` },
-      visible: { opacity: 1, y: 0, filter: "blur(0px)" },
+      visible: { opacity: 1, y: 0, filter: "none" },
     },
     fade: {
       hidden: { opacity: 0 },
@@ -32,15 +32,15 @@ function buildVariants(isMobile: boolean): Record<RevealVariant, Variants> {
     },
     left: {
       hidden: { opacity: 0, x: -shift, filter: `blur(${blur - 2}px)` },
-      visible: { opacity: 1, x: 0, filter: "blur(0px)" },
+      visible: { opacity: 1, x: 0, filter: "none" },
     },
     right: {
       hidden: { opacity: 0, x: shift, filter: `blur(${blur - 2}px)` },
-      visible: { opacity: 1, x: 0, filter: "blur(0px)" },
+      visible: { opacity: 1, x: 0, filter: "none" },
     },
     scale: {
       hidden: { opacity: 0, scale: isMobile ? 0.97 : 0.94, filter: `blur(${blur - 4}px)` },
-      visible: { opacity: 1, scale: 1, filter: "blur(0px)" },
+      visible: { opacity: 1, scale: 1, filter: "none" },
     },
   };
 }

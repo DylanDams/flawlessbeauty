@@ -5,6 +5,7 @@ import type { ReactNode } from "react";
 import { useState } from "react";
 
 import Reveal from "@/components/motion/Reveal";
+import SharpImage from "@/components/SharpImage";
 
 type TreatmentPrice = { name: string; price: string };
 
@@ -173,7 +174,11 @@ export default function Treatments() {
                 }}
                 aria-expanded={activeId === t.id}
               >
-                <img src={t.image} alt="" loading="lazy" />
+                <SharpImage
+                  src={t.image}
+                  alt=""
+                  sizes="(max-width: 900px) 46vw, 30vw"
+                />
                 <div className="fb-treat-card__overlay" aria-hidden />
                 <div className="fb-treat-card__content">
                   <span className="fb-treat-card__title">{t.cardTitle}</span>
@@ -243,7 +248,11 @@ export default function Treatments() {
                     </a>
                   </div>
                   <div className="fb-treat-detail__photo">
-                    <img src={active.image} alt="" loading="lazy" />
+                    <SharpImage
+                      src={active.image}
+                      alt=""
+                      sizes="(max-width: 900px) 100vw, 30vw"
+                    />
                   </div>
                 </aside>
               </div>

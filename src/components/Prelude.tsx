@@ -1,6 +1,7 @@
 "use client";
 
 import Reveal from "@/components/motion/Reveal";
+import SharpImage from "@/components/SharpImage";
 
 export default function Prelude() {
   return (
@@ -24,10 +25,19 @@ export default function Prelude() {
 
         <div className="fb-intro__images">
           <Reveal className="fb-intro__img" variant="scale" delay={0.1}>
-            <img src="/img/werksfeer-vijlen.jpeg" alt="Handgemaakte nagels" loading="lazy" />
+            <SharpImage
+              src="/img/werksfeer-vijlen.jpeg"
+              alt="Handgemaakte nagels"
+              sizes="(max-width: 900px) 46vw, 22vw"
+              priority
+            />
           </Reveal>
           <Reveal className="fb-intro__img fb-intro__img--offset" variant="scale" delay={0.2}>
-            <img src="/img/werksfeer-celine.jpeg" alt="Celine aan het werk" loading="lazy" />
+            <SharpImage
+              src="/img/werksfeer-celine.jpeg"
+              alt="Celine aan het werk"
+              sizes="(max-width: 900px) 46vw, 22vw"
+            />
           </Reveal>
         </div>
       </div>

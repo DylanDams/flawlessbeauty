@@ -177,7 +177,7 @@ html {
   .fb-hero__actions {
     flex-direction: column;
     width: 100%;
-    gap: 0.75rem;
+    gap: 1rem;
     align-items: stretch;
   }
 
@@ -497,6 +497,19 @@ html {
     width: 100%;
   }
 
+  .fb-giftcard-shop__grid {
+    grid-template-columns: 1fr;
+  }
+
+  .fb-giftcard-shop__footer {
+    align-items: stretch;
+    flex-direction: column;
+  }
+
+  .fb-giftcard-shop__amounts button {
+    flex: 1 1 calc(50% - 0.55rem);
+  }
+
   /* ---- Footer ---- */
   .fb-footer {
     padding-top: 3rem;
@@ -524,10 +537,16 @@ html {
     padding-bottom: max(1rem, env(safe-area-inset-bottom, 0px));
   }
 
-  /* ---- Cursor off on touch ---- */
-  .cursor-dot,
-  .cursor-ring {
-    display: none !important;
+  .fb-admin__search,
+  .fb-admin-card dl,
+  .fb-admin-card__redeem {
+    grid-template-columns: 1fr;
+  }
+
+  .fb-admin__panel,
+  .fb-shop-status__card {
+    padding: 1.5rem;
+    border-radius: 14px;
   }
 
   /* ---- Salonized booking widget ---- */

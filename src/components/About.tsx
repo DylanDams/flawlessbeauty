@@ -1,13 +1,18 @@
 "use client";
 
 import Reveal from "@/components/motion/Reveal";
+import SharpImage from "@/components/SharpImage";
 
 export default function About() {
   return (
     <section className="fb-about" id="over-mij">
       <div className="fb-container fb-about__grid">
         <Reveal className="fb-about__portrait" variant="scale">
-          <img src="/img/celine-portrait.jpeg" alt="Celine Dams" loading="lazy" />
+          <SharpImage
+            src="/img/celine-portrait.jpeg"
+            alt="Celine Dams"
+            sizes="(max-width: 900px) min(100vw, 480px), 40vw"
+          />
         </Reveal>
         <Reveal variant="right">
           <span className="fb-eyebrow">— Over mij</span>

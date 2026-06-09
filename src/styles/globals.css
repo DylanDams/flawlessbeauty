@@ -21,6 +21,10 @@ body {
   text-rendering: optimizeLegibility;
 }
 
+img {
+  image-rendering: auto;
+}
+
 /* Visually hidden, but available to screen readers & search engines */
 .visually-hidden {
   position: absolute;

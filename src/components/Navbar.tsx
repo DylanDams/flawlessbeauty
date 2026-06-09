@@ -1,6 +1,7 @@
 "use client";
 
 import { AnimatePresence, motion } from "framer-motion";
+import Image from "next/image";
 import { useEffect, useState } from "react";
 
 const LINKS = [
@@ -38,7 +39,7 @@ export default function Navbar() {
           </nav>
 
           <a href="#" className="fb-nav__logo" aria-label="Flawless Beauty home">
-            <img src="/img/logowitklein.svg" alt="" />
+            <Image src="/img/logowitklein.svg" alt="" width={1633} height={1229} priority />
           </a>
 
           <nav className="fb-nav__links fb-nav__links--right">

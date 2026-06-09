@@ -1,12 +1,18 @@
 "use client";
 
+import GiftcardShop from "@/components/GiftcardShop";
 import Reveal from "@/components/motion/Reveal";
+import SharpImage from "@/components/SharpImage";
 
 export default function Giftcard() {
   return (
     <section className="fb-giftcard" id="giftcard">
       <Reveal className="fb-giftcard__visual" variant="scale">
-        <img src="/img/studio-giftcard.jpeg" alt="Flawless Beauty giftcard" loading="lazy" />
+        <SharpImage
+          src="/img/studio-giftcard.jpeg"
+          alt="Flawless Beauty giftcard"
+          sizes="(max-width: 900px) 100vw, 50vw"
+        />
         <span className="fb-giftcard__badge">Giftcard</span>
       </Reveal>
       <Reveal className="fb-giftcard__content" variant="right" delay={0.1}>
@@ -16,16 +22,11 @@ export default function Giftcard() {
           Met een giftcard van Flawless Beauty geef je een verwenmoment naar keuze.
         </p>
         <ul className="fb-giftcard__list">
-          <li>Zelf kiezen welk bedrag</li>
-          <li>Leuk verpakt</li>
-          <li>Afhalen of verzonden</li>
+          <li>Kies zelf het bedrag</li>
+          <li>Betaal veilig online</li>
+          <li>Ontvang direct een unieke code per e-mail</li>
         </ul>
-        <a
-          href="mailto:flawlessbeauty@kpnmail.nl?subject=Giftcard%20bestellen"
-          className="fb-btn fb-btn--light"
-        >
-          Bestel giftcard →
-        </a>
+        <GiftcardShop />
       </Reveal>
     </section>
   );

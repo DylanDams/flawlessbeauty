@@ -1,6 +1,7 @@
 "use client";
 
 import Reveal from "@/components/motion/Reveal";
+import SharpImage from "@/components/SharpImage";
 
 const PRODUCTS = [
   { img: "/img/product-myway-1.jpeg", name: "Gelpolish", featured: true },
@@ -35,7 +36,11 @@ export default function Products() {
               variant="scale"
               delay={i * 0.1}
             >
-              <img src={p.img} alt={`MY WAY ${p.name}`} loading="lazy" />
+              <SharpImage
+                src={p.img}
+                alt={`MY WAY ${p.name}`}
+                sizes="(max-width: 700px) 100vw, (max-width: 900px) 31vw, 30vw"
+              />
               <figcaption>
                 <span className="fb-product__tag">MY WAY</span>
                 <span className="fb-product__name">{p.name}</span>

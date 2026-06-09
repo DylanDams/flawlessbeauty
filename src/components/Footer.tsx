@@ -1,6 +1,7 @@
 "use client";
 
 import Reveal from "@/components/motion/Reveal";
+import Image from "next/image";
 
 export default function Footer() {
   return (
@@ -10,19 +11,19 @@ export default function Footer() {
           <h3>Contact</h3>
           <p>
             <a href="mailto:flawlessbeauty@kpnmail.nl">
-              <img src="/img/mail.svg" alt="" className="social-icon" />
+              <Image src="/img/mail.svg" alt="" width={18} height={18} className="social-icon" />
               flawlessbeauty@kpnmail.nl
             </a>
           </p>
           <p>
             <a href="https://wa.me/31683524241" target="_blank" rel="noopener noreferrer">
-              <img src="/img/whatsapp.svg" alt="" className="social-icon" />
+              <Image src="/img/whatsapp.svg" alt="" width={18} height={18} className="social-icon" />
               06 83524241
             </a>
           </p>
           <p>
             <a href="https://g.co/kgs/ufyRsAV" target="_blank" rel="noopener noreferrer">
-              <img src="/img/pin.svg" alt="" className="social-icon" />
+              <Image src="/img/pin.svg" alt="" width={18} height={18} className="social-icon" />
               Warmelo 5, 8103HT Raalte
             </a>
           </p>
@@ -32,10 +33,10 @@ export default function Footer() {
           <h3>Sociale media</h3>
           <div className="fb-footer__social">
             <a href="https://www.instagram.com/flawlessbeauty.nl" target="_blank" rel="noopener noreferrer" aria-label="Instagram">
-              <img src="/img/instagram.svg" alt="" className="social-icon" />
+              <Image src="/img/instagram.svg" alt="" width={18} height={18} className="social-icon" />
             </a>
             <a href="https://www.facebook.com/profile.php?id=61564057466537" target="_blank" rel="noopener noreferrer" aria-label="Facebook">
-              <img src="/img/facebook.svg" alt="" className="social-icon" />
+              <Image src="/img/facebook.svg" alt="" width={18} height={18} className="social-icon" />
             </a>
           </div>
         </Reveal>

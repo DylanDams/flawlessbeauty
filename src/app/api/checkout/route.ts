@@ -1,24 +1,68 @@
 import { NextResponse } from "next/server";
+import { createMolliePayment } from "@/lib/shop/mollie";
+import { createPendingGiftCardOrder, updateOrder } from "@/lib/shop/orders";
+import {
+  GIFT_CARD_PRODUCT_ID,
+  isValidGiftCardAmount,
+} from "@/lib/shop/products";
 import type { CheckoutRequest } from "@/lib/shop/types";
 
-/**
- * Placeholder checkout endpoint for future Mollie integration.
- * Wire MOLLIE_API_KEY and Supabase order storage in phase 2.
- */
 export async function POST(request: Request) {
-  const body = (await request.json()) as CheckoutRequest;
+  try {
+    const body = (await request.json()) as CheckoutRequest;
 
-  if (!body.items?.length || !body.customerEmail) {
+    if (body.productId !== GIFT_CARD_PRODUCT_ID) {
+      return NextResponse.json({ error: "Onbekend product." }, { status: 400 });
+    }
+
+    if (!isValidGiftCardAmount(body.amountCents)) {
+      return NextResponse.json(
+        { error: "Kies een cadeaukaartbedrag tussen €20 en €250." },
+        { status: 400 }
+      );
+    }
+
+    if (!body.customerName?.trim() || !body.customerEmail?.trim()) {
+      return NextResponse.json(
+        { error: "Naam en e-mail zijn verplicht." },
+        { status: 400 }
+      );
+    }
+
+    const order = await createPendingGiftCardOrder({
+      totalCents: body.amountCents,
+      customerName: body.customerName.trim(),
+      customerEmail: body.customerEmail.trim().toLowerCase(),
+      recipientName: body.recipientName?.trim(),
+      recipientEmail: body.recipientEmail?.trim().toLowerCase(),
+      personalMessage: body.personalMessage?.trim(),
+    });
+
+    const payment = await createMolliePayment({
+      orderId: order.id,
+      amountCents: order.total_cents,
+      customerEmail: order.customer_email,
+    });
+
+    await updateOrder(order.id, {
+      mollie_payment_id: payment.paymentId,
+      mollie_checkout_url: payment.checkoutUrl,
+    });
+
+    return NextResponse.json({
+      checkoutUrl: payment.checkoutUrl,
+      orderId: order.id,
+    });
+  } catch (error) {
+    console.error("Checkout failed", error);
     return NextResponse.json(
-      { error: "items and customerEmail are required" },
-      { status: 400 }
+      {
+        error:
+          error instanceof Error
+            ? error.message
+            : "Betaling starten is niet gelukt.",
+      },
+      { status: 500 }
     );
   }
-
-  return NextResponse.json(
-    {
-      error: "Checkout is not enabled yet. Configure Mollie in phase 2.",
-    },
-    { status: 501 }
-  );
 }
