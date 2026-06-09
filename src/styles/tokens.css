@@ -1,0 +1,39 @@
+:root {
+  /* Brand palette */
+  --color-espresso: #484036;
+  --color-espresso-light: #5c5248;
+  --color-cream: #dfd9cd;
+  --color-cream-light: #f5efe4;
+  --color-cream-warm: #ece5d4;
+  --color-ivory: #faf8f6;
+  --color-gold: #b8956a;
+  --color-gold-soft: rgba(184, 149, 106, 0.35);
+
+  /* Typography */
+  --font-display: var(--font-cormorant), "Cormorant Garamond", Georgia, serif;
+  --font-body: var(--font-work-sans), "Work Sans", system-ui, sans-serif;
+
+  /* Spacing scale */
+  --space-xs: 0.5rem;
+  --space-sm: 1rem;
+  --space-md: 1.5rem;
+  --space-lg: 3rem;
+  --space-xl: 5rem;
+  --space-2xl: 7rem;
+
+  /* Motion */
+  --ease-luxury: cubic-bezier(0.16, 1, 0.3, 1);
+  --ease-out-expo: cubic-bezier(0.19, 1, 0.22, 1);
+  --duration-fast: 0.35s;
+  --duration-normal: 0.7s;
+  --duration-slow: 1.2s;
+
+  /* Elevation */
+  --shadow-soft: 0 20px 50px -20px rgba(72, 64, 54, 0.18);
+  --shadow-lift: 0 32px 64px -24px rgba(72, 64, 54, 0.28);
+  --shadow-glow: 0 0 0 1px rgba(255, 255, 255, 0.06);
+
+  /* Layout */
+  --max-width: 1200px;
+  --navbar-height: 88px;
+}

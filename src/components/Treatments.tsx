@@ -1,259 +1,256 @@
 "use client";
 
+import { AnimatePresence, motion } from "framer-motion";
+import type { ReactNode } from "react";
 import { useState } from "react";
 
-import { useSlideshow } from "@/hooks/useSlideshow";
+import Reveal from "@/components/motion/Reveal";
 
-const SLIDESHOW_IMAGES = [
-  "nagels1.jpeg",
-  "nagels2.jpeg",
-  "nagels3.jpeg",
-  "nagels4.jpeg",
-  "nagels5.jpeg",
-  "nagels6.jpeg",
-  "nagels7.jpeg",
-  "nagels8.jpeg",
-  "nagels9.jpeg",
+type TreatmentPrice = { name: string; price: string };
+
+type Treatment = {
+  id: string;
+  cardTitle: string;
+  title: string;
+  image: string;
+  tagline: string;
+  prices: TreatmentPrice[];
+  body: ReactNode;
+};
+
+const TREATMENTS: Treatment[] = [
+  {
+    id: "biab",
+    cardTitle: "BIAB",
+    title: "BIAB — Natural Nail Treatment",
+    image: "/img/nagels4.jpeg",
+    tagline: "Versterk en verzorg je natuurlijke nagels",
+    prices: [
+      { name: "BIAB treatment & manicure", price: "€50,-" },
+      { name: "BIAB + gelpolish", price: "€55,-" },
+      { name: "Vormcorrectie", price: "€65,-" },
+      { name: "Vormcorrectie + gelpolish", price: "€67,50" },
+    ],
+    body: (
+      <>
+        <p>
+          De natuurlijke nagels worden verstevigd met een gel product. Op de
+          afspraak bekijk ik of ik ga werken met een soft gel of een hard gel.
+          De nagelriemen worden behandeld doormiddel van een manicure.
+        </p>
+        <ul className="fb-treat-detail__list">
+          <li>
+            <strong>BIAB treatment &amp; manicure</strong> — versteviging ZONDER
+            gelpolish
+          </li>
+          <li>
+            <strong>BIAB + gelpolish</strong> — zelfde behandeling MET gelpolish
+            op de lengte van de natuurlijke nagel
+          </li>
+          <li>
+            <strong>Vormcorrectie</strong> — corrigeren van de nagelvorm met BIAB
+          </li>
+        </ul>
+      </>
+    ),
+  },
+  {
+    id: "extensions",
+    cardTitle: "Nailextensions",
+    title: "Nailextensions",
+    image: "/img/nagels2.jpeg",
+    tagline: "Lengte en vorm met precisie",
+    prices: [
+      { name: "Extensions & manicure", price: "€70,-" },
+      { name: "Extensions + gelpolish", price: "€75,-" },
+    ],
+    body: (
+      <>
+        <p>
+          Met nailextensions creëer ik de lengte en vorm die bij jou past —
+          altijd met aandacht voor de gezondheid van je natuurlijke nagel.
+        </p>
+        <ul className="fb-treat-detail__list">
+          <li>
+            <strong>Nail extensions &amp; manicure</strong> — verlenging met gel,
+            ZONDER gelpolish
+          </li>
+          <li>
+            <strong>Nail extensions + gelpolish</strong> — MET gelpolish
+          </li>
+        </ul>
+      </>
+    ),
+  },
+  {
+    id: "gelpolish",
+    cardTitle: "Gelpolish",
+    title: "Gelpolish & Russian manicure",
+    image: "/img/nagels5.jpeg",
+    tagline: "Kleur die wekenlang perfect blijft",
+    prices: [{ name: "Gelpolish & Russian manicure", price: "€45,-" }],
+    body: (
+      <p>
+        De natuurlijke nagels worden behandeld met gelpolish en de nagelriemen
+        met een manicure. Gemiddeld blijft het resultaat 2–3 weken mooi zitten —
+        met de verzorging die je nagels verdienen.
+      </p>
+    ),
+  },
+  {
+    id: "nailart",
+    cardTitle: "Nailart",
+    title: "Nailart",
+    image: "/img/nagels10.jpeg",
+    tagline: "French, babyboom, chrome & meer",
+    prices: [{ name: "Per nagel (babyboom, french, chrome etc.)", price: "€7,50" }],
+    body: (
+      <>
+        <p>
+          Nailart is het finishing touch — subtiel of opvallend, helemaal naar
+          jouw wens. Denk aan frenchtip, babyboom, chrome of andere details.
+        </p>
+        <p className="fb-treat-detail__note">
+          Toe te voegen bij BIAB, nailextensions of gelpolish.
+        </p>
+      </>
+    ),
+  },
+  {
+    id: "removal",
+    cardTitle: "Verwijderen",
+    title: "Set verwijderen",
+    image: "/img/nagels6.jpeg",
+    tagline: "Veilig en zorgvuldig verwijderd",
+    prices: [
+      { name: "BIAB verwijderen", price: "€25,-" },
+      { name: "Nailextensions verwijderen", price: "€35,-" },
+      { name: "Gellak verwijderen", price: "€20" },
+    ],
+    body: (
+      <p>
+        Een set verwijderen doe ik altijd zorgvuldig, zodat je natuurlijke nagels
+        zo gezond mogelijk blijven. Kies de behandeling die past bij wat je
+        draagt.
+      </p>
+    ),
+  },
 ];
 
 export default function Treatments() {
-  useSlideshow(".slideshow");
-  const [openId, setOpenId] = useState<string | null>(null);
-
-  const toggle = (id: string) =>
-    setOpenId((current) => (current === id ? null : id));
+  const [activeId, setActiveId] = useState<string | null>(null);
+  const active = TREATMENTS.find((t) => t.id === activeId);
 
   return (
-    <div id="behandelingen" className="section section-two">
-      <div className="section-two-container">
-        <div className="content-left">
-          <div className="slideshow">
-            {SLIDESHOW_IMAGES.map((image) => (
-              <img
-                key={image}
-                src={`/img/${image}`}
-                alt=""
-                loading="lazy"
-                decoding="async"
-              />
-            ))}
-          </div>
+    <section className="fb-treatments" id="behandelingen">
+      <div className="fb-container">
+        <Reveal className="fb-treatments__header">
+          <span className="fb-eyebrow">— Behandelingen</span>
+          <h2 className="fb-heading">Wat ik <em>aanbied</em></h2>
+          <p className="fb-lede fb-treatments__lede">
+            Kies een behandeling om meer te lezen — van BIAB tot nailart, altijd
+            met persoonlijke aandacht.
+          </p>
+        </Reveal>
+
+        <div className="fb-treat-cards">
+          {TREATMENTS.map((t, i) => (
+            <Reveal key={t.id} delay={i * 0.06}>
+              <button
+                type="button"
+                className={`fb-treat-card${activeId === t.id ? " is-active" : ""}`}
+                onClick={() => {
+                  const next = activeId === t.id ? null : t.id;
+                  setActiveId(next);
+                  if (next) {
+                    requestAnimationFrame(() => {
+                      document.querySelector(".fb-treat-detail")?.scrollIntoView({
+                        behavior: "smooth",
+                        block: "nearest",
+                      });
+                    });
+                  }
+                }}
+                aria-expanded={activeId === t.id}
+              >
+                <img src={t.image} alt="" loading="lazy" />
+                <div className="fb-treat-card__overlay" aria-hidden />
+                <div className="fb-treat-card__content">
+                  <span className="fb-treat-card__title">{t.cardTitle}</span>
+                  <span className="fb-treat-card__cta">
+                    {activeId === t.id ? "Sluiten" : "Ontdek"}
+                  </span>
+                </div>
+              </button>
+            </Reveal>
+          ))}
+
+          <Reveal delay={0.3}>
+            <a href="#contact" className="fb-treat-card fb-treat-card--cta">
+              <div className="fb-treat-card__content">
+                <span className="fb-treat-card__title">
+                  Boek eenvoudig jouw afspraak
+                </span>
+                <span className="fb-treat-card__cta fb-treat-card__cta--fill">
+                  Maak afspraak
+                </span>
+              </div>
+            </a>
+          </Reveal>
         </div>
 
-        <div className="content-right">
-          <h2 data-reveal>Behandelingen</h2>
-
-          <div className="treatment-section" data-reveal data-delay="1">
-            <h3>
+        <AnimatePresence mode="wait">
+          {active && (
+            <motion.div
+              key={active.id}
+              className="fb-treat-detail"
+              initial={{ opacity: 0, y: 24 }}
+              animate={{ opacity: 1, y: 0 }}
+              exit={{ opacity: 0, y: 12 }}
+              transition={{ duration: 0.55, ease: [0.16, 1, 0.3, 1] }}
+            >
               <button
                 type="button"
-                className="treatment-title"
-                onClick={() => toggle("biab-description")}
-                aria-expanded={openId === "biab-description"}
-                aria-controls="biab-description"
+                className="fb-treat-detail__back"
+                onClick={() => setActiveId(null)}
               >
-                BIAB (Natural Nail Treatment)
+                ← Alle behandelingen
               </button>
-            </h3>
-            <p
-              id="biab-description"
-              className="treatment-description"
-              style={{
-                display: openId === "biab-description" ? "block" : "none",
-              }}
-            >
-              <img
-                src="/img/nagels4.jpeg"
-                className="mini-picture-treatment"
-                alt=""
-                loading="lazy"
-                decoding="async"
-              />
-              <br />
-              <strong>BIAB treatment &amp; manicure</strong>
-              <br />
-              De natuurlijke nagels worden verstevigd met een gel product.
-              <br />
-              Op de afspraak bekijk ik of ik ga werken met een soft gel (zacht
-              product) of een hard gel (hard product), dit is afhankelijk van de
-              natuurlijke nagel. <br />
-              De nagelriemen worden behandeld doormiddel van een manicure. Deze
-              behandeling is ZONDER gelpolish en er wordt gewerkt op de lengte
-              van de natuurlijke nagel.
-              <br />
-              <br />
-              <img
-                src="/img/nagels3.jpeg"
-                className="mini-picture-treatment"
-                alt=""
-                loading="lazy"
-                decoding="async"
-              />
-              <br />
-              <strong>BIAB treatment &amp; manicure + gelpolish</strong>
-              <br />
-              De natuurlijke nagels worden verstevigd met een gel product.
-              <br />
-              Op de afspraak bekijk ik of ik ga werken met een soft gel (zacht
-              product) of een hard gel (hard product), dit is afhankelijk van de
-              natuurlijke nagel. <br />
-              De nagelriemen worden behandeld doormiddel van een manicure. Deze
-              behandeling is MET gelpolish en er wordt gewerkt op de lengte van
-              de natuurlijke nagel.
-            </p>
-          </div>
 
-          <div className="treatment-section" data-reveal data-delay="2">
-            <h3>
-              <button
-                type="button"
-                className="treatment-title"
-                onClick={() => toggle("nailextensions-description")}
-                aria-expanded={openId === "nailextensions-description"}
-                aria-controls="nailextensions-description"
-              >
-                NAILEXTENSIONS
-              </button>
-            </h3>
-            <p
-              id="nailextensions-description"
-              className="treatment-description"
-              style={{
-                display:
-                  openId === "nailextensions-description" ? "block" : "none",
-              }}
-            >
-              <img
-                src="/img/nagels2.jpeg"
-                className="mini-picture-treatment"
-                alt=""
-                loading="lazy"
-                decoding="async"
-              />
-              <br />
-              <strong>Nail extensions &amp; manicure</strong>
-              <br />
-              De natuurlijke nagels worden verlengd met gel, op de afspraak
-              kijk ik of ik met sjablonen ga werken of upperforms, afhankelijk
-              van de natuurlijke nagel. Deze behandeling is ZONDER gelpolish.
-              <br />
-              <br />
-              <strong>Nail extensions &amp; manicure + gelpolish</strong>
-              <br />
-              De natuurlijke nagels worden verlengd met gel, op de afspraak
-              kijk ik of ik met sjablonen ga werken of upperforms, afhankelijk
-              van de natuurlijke nagel. Deze behandeling is MET gelpolish.
-            </p>
-          </div>
+              <div className="fb-treat-detail__grid">
+                <div className="fb-treat-detail__main">
+                  <h3 className="fb-treat-detail__title">{active.title}</h3>
+                  <p className="fb-treat-detail__tagline">{active.tagline}</p>
+                  <div className="fb-treat-detail__body">{active.body}</div>
+                  <a href="#prijslijst" className="fb-btn" style={{ marginTop: "1.5rem" }}>
+                    Volledige prijslijst
+                  </a>
+                </div>
 
-          <div className="treatment-section" data-reveal data-delay="3">
-            <h3>
-              <button
-                type="button"
-                className="treatment-title"
-                onClick={() => toggle("gelpolish-description")}
-                aria-expanded={openId === "gelpolish-description"}
-                aria-controls="gelpolish-description"
-              >
-                GELPOLISH
-              </button>
-            </h3>
-            <p
-              id="gelpolish-description"
-              className="treatment-description"
-              style={{
-                display: openId === "gelpolish-description" ? "block" : "none",
-              }}
-            >
-              <strong>Gelpolish &amp; manicure</strong>
-              <br />
-              De natuurlijke nagels worden behandeld met een gelpolish en de
-              nagelriemen met een manicure. Dit blijft gemiddeld 2-3 weken
-              zitten. Wilt u langer genieten van mooie nagels? Kies dan voor een
-              BIAB behandeling.
-            </p>
-          </div>
-
-          <div className="treatment-section" data-reveal data-delay="4">
-            <h3>
-              <button
-                type="button"
-                className="treatment-title"
-                onClick={() => toggle("nailart-description")}
-                aria-expanded={openId === "nailart-description"}
-                aria-controls="nailart-description"
-              >
-                NAILART
-              </button>
-            </h3>
-            <p
-              id="nailart-description"
-              className="treatment-description"
-              style={{
-                display: openId === "nailart-description" ? "block" : "none",
-              }}
-            >
-              <img
-                src="/img/nagels10.jpeg"
-                className="mini-picture-treatment"
-                alt=""
-                loading="lazy"
-                decoding="async"
-              />
-              <img
-                src="/img/nagels1.jpeg"
-                className="mini-picture-treatment"
-                alt=""
-                loading="lazy"
-                decoding="async"
-              />
-              <br />
-              Deze behandeling kunt u boeken als extra bij een BIAB,
-              Nailextensions of Gelpolish behandeling. Denk aan bijvoorbeeld een
-              frenchtip of een babyboom.
-            </p>
-          </div>
-
-          <div className="treatment-section" data-reveal data-delay="5">
-            <h3>
-              <button
-                type="button"
-                className="treatment-title"
-                onClick={() => toggle("setverwijderen-description")}
-                aria-expanded={openId === "setverwijderen-description"}
-                aria-controls="setverwijderen-description"
-              >
-                SET VERWIJDEREN
-              </button>
-            </h3>
-            <p
-              id="setverwijderen-description"
-              className="treatment-description"
-              style={{
-                display:
-                  openId === "setverwijderen-description" ? "block" : "none",
-              }}
-            >
-              <strong>BIAB verwijderen</strong>
-              <br />
-              Hierbij wordt de BIAB op een professionele manier van de nagels
-              verwijderd.
-              <br />
-              <br />
-              <strong>Nailextensions verwijderen</strong>
-              <br />
-              Hierbij worden de Nailextensions op een professionele manier van
-              de nagels verwijderd.
-              <br />
-              <br />
-              <strong>Gellak verwijderen</strong>
-              <br />
-              Hierbij wordt de gellak op een professionele manier van de nagels
-              verwijderd.
-            </p>
-          </div>
-        </div>
+                <aside className="fb-treat-detail__aside">
+                  <div className="fb-treat-detail__pricebox">
+                    <span className="fb-treat-detail__pricebox-label">Tarieven</span>
+                    <ul>
+                      {active.prices.map((p) => (
+                        <li key={p.name}>
+                          <span>{p.name}</span>
+                          <span className="fb-treat-detail__price">{p.price}</span>
+                        </li>
+                      ))}
+                    </ul>
+                    <a href="#contact" className="fb-btn fb-btn--light fb-btn--fill">
+                      Afspraak maken
+                    </a>
+                  </div>
+                  <div className="fb-treat-detail__photo">
+                    <img src={active.image} alt="" loading="lazy" />
+                  </div>
+                </aside>
+              </div>
+            </motion.div>
+          )}
+        </AnimatePresence>
       </div>
-    </div>
+    </section>
   );
 }

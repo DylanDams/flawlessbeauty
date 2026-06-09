@@ -1,24 +1,19 @@
 "use client";
 
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 
-export function useSlideshow(selector: string, intervalMs = 5000) {
+export function useSlideshow(imageCount: number, intervalMs = 5000) {
+  const [currentIndex, setCurrentIndex] = useState(0);
+
   useEffect(() => {
-    const images = document.querySelectorAll<HTMLImageElement>(
-      `${selector} img`
-    );
-    if (!images.length) return;
+    if (imageCount <= 1) return;
 
-    let currentIndex = 0;
-    images[currentIndex].classList.add("active");
+    const intervalId = window.setInterval(() => {
+      setCurrentIndex((prev) => (prev + 1) % imageCount);
+    }, intervalMs);
 
-    const showNextImage = () => {
-      images[currentIndex].classList.remove("active");
-      currentIndex = (currentIndex + 1) % images.length;
-      images[currentIndex].classList.add("active");
-    };
-
-    const intervalId = window.setInterval(showNextImage, intervalMs);
     return () => window.clearInterval(intervalId);
-  }, [selector, intervalMs]);
+  }, [imageCount, intervalMs]);
+
+  return currentIndex;
 }

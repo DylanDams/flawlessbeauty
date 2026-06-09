@@ -10,12 +10,14 @@ import PriceList from "@/components/PriceList";
 import Products from "@/components/Products";
 import SalonizedWidgets from "@/components/SalonizedWidgets";
 import ScrollAnimations from "@/components/ScrollAnimations";
+import ScrollProgress from "@/components/ScrollProgress";
 import StudioGallery from "@/components/StudioGallery";
 import Treatments from "@/components/Treatments";
 
 export default function Home() {
   return (
     <>
+      <ScrollProgress />
       <CustomCursor />
       <IntroLoader />
       <Navbar />

@@ -1,0 +1,239 @@
+/* ============================================================
+   Professional makeover — polish layer
+   ============================================================ */
+
+body {
+  font-family: var(--font-body);
+  color: var(--color-espresso);
+  background-color: var(--color-ivory);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+h1,
+h2,
+h3,
+.section h2,
+.content-right h2,
+.prelude-word-big,
+.studio-heading,
+.products-heading,
+.giftcard-heading {
+  font-family: var(--font-display);
+  font-weight: 500;
+  letter-spacing: 0.02em;
+}
+
+/* ---- Navbar: glass on scroll ---- */
+.navbar {
+  transition:
+    background-color var(--duration-normal) var(--ease-luxury),
+    backdrop-filter var(--duration-normal) var(--ease-luxury),
+    padding var(--duration-normal) var(--ease-luxury),
+    box-shadow var(--duration-normal) var(--ease-luxury);
+}
+
+.navbar--scrolled {
+  background-color: rgba(72, 64, 54, 0.82);
+  backdrop-filter: blur(16px) saturate(1.4);
+  -webkit-backdrop-filter: blur(16px) saturate(1.4);
+  padding-top: 0.6rem;
+  padding-bottom: 0.6rem;
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.12);
+}
+
+.navbar--scrolled .logo-img {
+  height: 9vh;
+  transition: height var(--duration-normal) var(--ease-luxury);
+}
+
+.navbar a {
+  font-size: 13px;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  font-weight: 500;
+}
+
+/* ---- Hero refinements ---- */
+.section-one::before {
+  background: linear-gradient(
+    180deg,
+    rgba(0, 0, 0, 0.35) 0%,
+    rgba(0, 0, 0, 0.15) 40%,
+    rgba(0, 0, 0, 0.45) 100%
+  );
+}
+
+.hero-video-wrap {
+  position: absolute;
+  inset: 0;
+  overflow: hidden;
+  z-index: -1;
+}
+
+.hero-video-wrap .background-video {
+  transform: scale(1.06);
+  animation: heroKenBurns 24s ease-in-out infinite alternate;
+}
+
+@keyframes heroKenBurns {
+  from {
+    transform: scale(1.04);
+  }
+  to {
+    transform: scale(1.1);
+  }
+}
+
+/* ---- Intro loader ---- */
+.intro {
+  background: linear-gradient(145deg, var(--color-cream-light), var(--color-cream));
+}
+
+.intro-logo {
+  filter: drop-shadow(0 12px 32px rgba(72, 64, 54, 0.12));
+}
+
+/* ---- Section headings ---- */
+.section h2,
+.content-right h2,
+.prijslijst-left h2 {
+  font-size: clamp(2.25rem, 4vw, 3.25rem) !important;
+  line-height: 1.1;
+}
+
+.content-right h2::after,
+.prijslijst-left h2::after {
+  background: linear-gradient(90deg, var(--color-gold), transparent);
+}
+
+/* ---- Treatment accordion polish ---- */
+.treatment-title {
+  transition:
+    color var(--duration-fast) ease,
+    letter-spacing var(--duration-fast) ease;
+}
+
+.treatment-title:hover {
+  color: var(--color-gold);
+  letter-spacing: 0.04em;
+}
+
+.treatment-description {
+  border-left: 2px solid var(--color-gold-soft);
+  padding-left: 1.25rem;
+  margin-left: 0.25rem;
+}
+
+/* ---- Slideshow crossfade ---- */
+.slideshow {
+  position: relative;
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: var(--shadow-lift);
+}
+
+.slideshow img {
+  opacity: 0;
+  transition: opacity 1.2s var(--ease-luxury);
+}
+
+.slideshow img.active {
+  opacity: 1;
+}
+
+/* ---- Cards & tiles ---- */
+.prelude-tile,
+.studio-tile,
+.product-card,
+.giftcard-media {
+  box-shadow: var(--shadow-soft);
+}
+
+.prelude-tile:hover,
+.product-card:hover {
+  box-shadow: var(--shadow-lift);
+}
+
+/* ---- Buttons ---- */
+.contact-button,
+.giftcard-cta {
+  transition:
+    transform var(--duration-fast) var(--ease-luxury),
+    box-shadow var(--duration-fast) var(--ease-luxury),
+    background-color var(--duration-fast) ease;
+}
+
+.contact-button:hover,
+.giftcard-cta:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 12px 28px rgba(72, 64, 54, 0.2);
+}
+
+/* ---- Marquee ---- */
+.marquee-strip {
+  background: linear-gradient(90deg, var(--color-espresso), var(--color-espresso-light));
+  letter-spacing: 0.2em;
+}
+
+/* ---- Footer ---- */
+.footer {
+  position: relative;
+}
+
+.footer::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 10%;
+  right: 10%;
+  height: 1px;
+  background: linear-gradient(
+    90deg,
+    transparent,
+    rgba(223, 217, 205, 0.25),
+    transparent
+  );
+}
+
+/* ---- Scroll progress ---- */
+.scroll-progress {
+  position: fixed;
+  top: 0;
+  left: 0;
+  height: 2px;
+  background: linear-gradient(90deg, var(--color-gold), var(--color-cream));
+  transform-origin: left;
+  z-index: 10001;
+  pointer-events: none;
+}
+
+/* ---- Mobile menu slide ---- */
+.navbar-mobile {
+  transform: translateY(-8px);
+  opacity: 0;
+  transition:
+    transform var(--duration-normal) var(--ease-luxury),
+    opacity var(--duration-normal) var(--ease-luxury);
+}
+
+.navbar-mobile.is-open {
+  transform: translateY(0);
+  opacity: 1;
+}
+
+.hamburger-menu .bar {
+  display: block;
+  transform-origin: center;
+}
+
+.treatment-section {
+  border-color: rgba(72, 64, 54, 0.1) !important;
+  box-shadow: var(--shadow-soft) !important;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .hero-video-wrap .background-video {
+    animation: none;
+  }
+}
